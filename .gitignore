@@ -1,0 +1,13 @@
+.gradle/
+.idea/
+local.properties
+keystore.properties
+*.jks
+*.keystore
+*.pem
+**/build/
+.tools/
+artifacts/
+*.hprof
+captures/
+*.log

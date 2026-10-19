@@ -1,0 +1,1 @@
+Adestramentos sen conexión, temporizador de sesións e seguimento do progreso.

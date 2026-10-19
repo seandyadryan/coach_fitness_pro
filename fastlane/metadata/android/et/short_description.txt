@@ -1,0 +1,1 @@
+Võrguühenduseta treeningud, seansi taimer ja edenemise jälgimine.

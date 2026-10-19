@@ -1,0 +1,1 @@
+Entrenamientos sin conexión, cronómetro de sesión y seguimiento del progreso.

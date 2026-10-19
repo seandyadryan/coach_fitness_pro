@@ -1,0 +1,1 @@
+Entrenaments fora de línia, temporitzador de sessions i seguiment del progrés.

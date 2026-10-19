@@ -1,0 +1,1 @@
+Allenamenti offline, timer della sessione e monitoraggio dei progressi.

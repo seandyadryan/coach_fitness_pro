@@ -1,0 +1,8 @@
+{
+  "source": "https://support.google.com/googleplay/android-developer/answer/9844778?hl=en",
+  "requested": 86,
+  "completed": 86,
+  "errors": [],
+  "translation_engine": "Google Translate machine translation; AI-authored Romansh override",
+  "notes": "Regional dialect variants share base-language translations. CSV is an interchange file, not a guaranteed Play Console UI import schema. Review before publishing."
+}
