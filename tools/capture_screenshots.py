@@ -123,7 +123,7 @@ def main():
     recorder.wait(timeout=45)
     adb('pull','/sdcard/coach-fitness-pro-preview.mp4',str(video/'coach-fitness-pro-preview.mp4'))
     errors=shell('dumpsys','activity','exit-info',PACKAGE)
-    (ROOT/'store'/'qa-results.json').write_text(json.dumps(dict(device='Android API 35 x86_64 dedicated emulator',screenshots=19,checks=RESULTS,video='Native app recording; encoded duration in asset-validation.json',exit_info=errors),indent=2),encoding='utf-8')
+    (ROOT/'store'/'qa-results.json').write_text(json.dumps(dict(device='Android API 35 x86_64 dedicated emulator',screenshots=len(list(DEST.rglob('*.png'))),checks=RESULTS,video='Native app recording; encoded duration in asset-validation.json',exit_info=errors),indent=2),encoding='utf-8')
     print('\n'.join(RESULTS),flush=True)
 if __name__=='__main__':
     try: main()
