@@ -164,7 +164,7 @@ class MainActivity : Activity() {
         listOf("Today" to R.string.today, "Workouts" to R.string.workouts, "Progress" to R.string.progress, "Profile" to R.string.profile).forEachIndexed { i, (key, id) ->
             val item = column().apply { gravity = Gravity.CENTER; minimumHeight = dp(54); setOnClickListener { navigate(key) }; isFocusable = true; contentDescription = s(id) }
             item.addView(Glyph(this, i, if (screen == key) lime else muted), LinearLayout.LayoutParams(dp(23), dp(23)))
-            item.gap(5); item.addView(text(s(id), 11, if (screen == key) lime else muted, screen == key))
+            item.gap(5); item.addView(text(s(id), 11, if (screen == key) lime else muted, screen == key).apply { gravity = Gravity.CENTER })
             nav.addView(item, LinearLayout.LayoutParams(0, -2, 1f))
         }; root.add(nav)
     }
