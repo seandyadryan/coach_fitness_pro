@@ -111,6 +111,8 @@ class MainActivity : Activity() {
     }
     private fun navigate(destination: String) { if (screen == "Session") pause(); screen = destination; render() }
     private fun render() {
+        if (screen == "Session") window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        else window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         timerText = null; timerBar = null; pauseButton = null
         root = column().apply { setBackgroundColor(bg) }
         if (Build.VERSION.SDK_INT >= 30) {
@@ -290,7 +292,7 @@ class MainActivity : Activity() {
     private fun openUrl(url: String) { try { startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) } catch (_: Exception) { Toast.makeText(this, s(R.string.no_browser), Toast.LENGTH_LONG).show() } }
     private fun begin(w: Workout) {
         selected = w.id; sessionId = UUID.randomUUID().toString(); index = 0; rest = false; totalMs = 0; remaining = w.movements().first().seconds * 1000L; running = false
-        saveSession(); navigate("Session"); running = true; lastTick = SystemClock.elapsedRealtime(); pauseButton?.text = s(R.string.pause)
+        saveSession(); navigate("Session"); running = true; lastTick = SystemClock.elapsedRealtime(); updatePauseButton()
     }
     private fun restoreSession() {
         store.active?.let { saved ->
@@ -303,7 +305,11 @@ class MainActivity : Activity() {
     private fun pause() {
         if (screen != "Session") return
         if (running) { val delta = (SystemClock.elapsedRealtime() - lastTick).coerceAtLeast(0); remaining = (remaining - delta).coerceAtLeast(1); totalMs += delta; running = false }
-        saveSession(); pauseButton?.text = s(R.string.resume)
+        saveSession(); updatePauseButton()
+    }
+    private fun updatePauseButton() {
+        val title = s(if (running) R.string.pause else R.string.resume)
+        pauseButton?.apply { text = title; contentDescription = title }
     }
     private fun refreshClock() {
         val secs = (remaining.coerceAtLeast(0) + 999) / 1000
@@ -315,7 +321,7 @@ class MainActivity : Activity() {
         val wasRunning = running
         if (!rest && index == workout().movements().lastIndex) { finishSession(); return }
         if (rest) { index++; rest = false; remaining = workout().movements()[index].seconds * 1000L } else { rest = true; remaining = 30000L }
-        saveSession(); render(); running = wasRunning; lastTick = SystemClock.elapsedRealtime(); pauseButton?.text = s(if (running) R.string.pause else R.string.resume)
+        saveSession(); render(); running = wasRunning; lastTick = SystemClock.elapsedRealtime(); updatePauseButton()
     }
     private fun session() {
         val w = workout(); val exercise = w.movements()[index]
@@ -325,12 +331,12 @@ class MainActivity : Activity() {
         timer.addView(text(if (rest) "RECOVER" else "MOVE AT YOUR PACE", 11, lime, true).apply { letterSpacing = .12f })
         timer.gap(20); timerText = text("", 72, ink, true).apply { gravity = Gravity.CENTER; typeface = Typeface.create("sans-serif-light", Typeface.NORMAL) }; timer.add(timerText!!); timer.gap(20)
         timerBar = progressBar(0, if (rest) 30000 else exercise.seconds * 1000); timer.add(timerBar!!); timer.gap(24)
-        pauseButton = action(s(if (running) R.string.pause else R.string.resume)) { if (running) pause() else { running = true; lastTick = SystemClock.elapsedRealtime(); pauseButton?.text = s(R.string.pause) } }; timer.add(pauseButton!!); timer.gap(12)
+        pauseButton = action(s(if (running) R.string.pause else R.string.resume)) { if (running) pause() else { running = true; lastTick = SystemClock.elapsedRealtime(); updatePauseButton() } }; timer.add(pauseButton!!); timer.gap(12)
         timer.add(action(s(if (rest) R.string.skip_rest else if (index == w.movements().lastIndex) R.string.finish else R.string.next), false) { if (running) { val delta = SystemClock.elapsedRealtime() - lastTick; totalMs += delta; lastTick = SystemClock.elapsedRealtime() }; advance() }); body.add(timer); body.gap(20)
         if (!rest) { val notes = card(); notes.add(label(s(R.string.form_notes))); notes.gap(14); exercise.cues.forEach { notes.add(text("•  $it", 15, ink)); notes.gap(12) }; body.add(notes); body.gap(15) }
         body.add(action(s(R.string.end_session), false) { pause(); showDiscard() }); refreshClock()
     }
-    private fun showDiscard() { AlertDialog.Builder(this).setTitle(s(R.string.end_session)).setMessage(s(R.string.abandon_message)).setNegativeButton(s(R.string.resume)) { _, _ -> if (screen == "Session") { running = true; lastTick = SystemClock.elapsedRealtime(); pauseButton?.text = s(R.string.pause) } }.setPositiveButton(s(R.string.end_session)) { _, _ -> running = false; store.active = null; sessionId = ""; navigate("Today") }.show() }
+    private fun showDiscard() { AlertDialog.Builder(this).setTitle(s(R.string.end_session)).setMessage(s(R.string.abandon_message)).setNegativeButton(s(R.string.resume)) { _, _ -> if (screen == "Session") { running = true; lastTick = SystemClock.elapsedRealtime(); updatePauseButton() } }.setPositiveButton(s(R.string.end_session)) { _, _ -> running = false; store.active = null; sessionId = ""; navigate("Today") }.show() }
     private fun finishSession() {
         running = false
         store.add(Session(sessionId, selected, LocalDate.now().toString(), (totalMs / 1000).toInt().coerceAtLeast(1)))
