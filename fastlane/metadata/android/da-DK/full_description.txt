@@ -24,5 +24,5 @@ Indbygget Android-design tilpasser sig telefoner, tablets og vinduer, der kan æ
 
 Coach Fitness PRO giver generel fitnessvejledning til voksne på 18 år og derover. Det er ikke et medicinsk udstyr og giver ikke medicinsk rådgivning, diagnose eller behandling. Hvis du har en helbredstilstand, skade eller er gravid, skal du konsultere en kvalificeret professionel før træning. Stop, hvis du føler smerte, svimmelhed eller usædvanlig åndenød. Resultaterne varierer med individuelle omstændigheder.
 
-Udviklet af PT Deploy Dulu Pulang Nanti.
+PT Deploy Dulu Pulang Nanti
 Support: seandyadryan2@gmail.com

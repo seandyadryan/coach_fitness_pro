@@ -24,5 +24,5 @@
 
 Coach Fitness PRO는 18세 이상 성인을 위한 일반적인 피트니스 지침을 제공합니다. 이는 의료 기기가 아니며 의학적 조언, 진단 또는 치료를 제공하지 않습니다. 건강상의 문제가 있거나 부상이 있거나 임신 중인 경우 운동하기 전에 자격을 갖춘 전문가와 상담하세요. 통증, 현기증 또는 비정상적인 호흡 곤란을 느끼면 중지하십시오. 결과는 개인의 상황에 따라 다릅니다.
 
-PT Deploy Dulu Pulang Nanti가 개발했습니다.
-지원: seandyadryan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com

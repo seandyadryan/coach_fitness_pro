@@ -24,5 +24,5 @@ A natív Android-kialakítás a telefonokhoz, táblagépekhez és az átméretez
 
 A Coach Fitness PRO általános fitnesz útmutatást nyújt 18 éves és idősebb felnőttek számára. Ez nem orvosi eszköz, és nem nyújt orvosi tanácsot, diagnózist vagy kezelést. Ha egészségi állapota, sérülése van vagy terhes, edzés előtt konzultáljon szakképzett szakemberrel. Hagyja abba, ha fájdalmat, szédülést vagy szokatlan légszomjat érez. Az eredmények az egyéni körülményektől függően változnak.
 
-A PT Deploy Dulu Pulang Nanti fejlesztette ki.
-Támogatás: seandyadryan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com

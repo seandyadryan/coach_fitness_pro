@@ -24,5 +24,5 @@
 
 Coach Fitness PRO 为 18 岁及以上的成年人提供一般健身指导。它不是医疗设备，不提供医疗建议、诊断或治疗。如果您有健康问题、受伤或怀孕，请在运动前咨询合格的专业人士。如果您感到疼痛、头晕或异常呼吸急促，请停止。结果因个人情况而异。
 
-由 PT Deploy Dulu Pulang Nanti 开发。
-支持：sandyadryan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com

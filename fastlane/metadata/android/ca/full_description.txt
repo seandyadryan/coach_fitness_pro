@@ -24,5 +24,5 @@ El disseny natiu d'Android s'adapta a telèfons, tauletes i finestres redimensio
 
 Coach Fitness PRO ofereix orientacions generals de fitness per a adults a partir de 18 anys. No és un dispositiu mèdic i no ofereix consell, diagnòstic o tractament mèdic. Si tens una malaltia, lesions o estàs embarassada, consulta un professional qualificat abans de fer exercici. Atureu-vos si sentiu dolor, marejos o falta d'alè inusual. Els resultats varien segons les circumstàncies individuals.
 
-Desenvolupat per PT Deploy Dulu Pulang Nanti.
-Suport: seandyadryan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com

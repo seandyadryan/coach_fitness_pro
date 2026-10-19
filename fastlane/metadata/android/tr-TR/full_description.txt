@@ -24,5 +24,5 @@ Yerel Android tasarımı telefonlara, tabletlere ve yeniden boyutlandırılabili
 
 Coach Fitness PRO, 18 yaş ve üzeri yetişkinler için genel fitness rehberliği sağlar. Tıbbi bir cihaz değildir ve tıbbi tavsiye, teşhis veya tedavi sağlamaz. Sağlık sorununuz varsa, yaralanmanız varsa veya hamileyseniz egzersiz yapmadan önce kalifiye bir uzmana danışın. Acı, baş dönmesi veya alışılmadık nefes darlığı hissederseniz durun. Sonuçlar bireysel koşullara göre değişir.
 
-PT Deploy Dulu Pulang Nanti tarafından geliştirildi.
-Destek: seandyadryan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com

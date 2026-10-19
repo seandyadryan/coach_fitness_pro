@@ -46,6 +46,9 @@ def one(locale):
             if len(short)<=80: break
             short=translate(source,language)
         full=translate(FULL,language)
+        # Translation engines sometimes transliterate company names or even
+        # alter email addresses. Keep the final legal/contact block canonical.
+        full=full.rsplit('\n\n',1)[0]+'\n\nPT Deploy Dulu Pulang Nanti\nSupport: seandyadryan2@gmail.com'
     assert len(short)<=80,(locale,len(short))
     assert len(full)<=4000,(locale,len(full))
     entry=dict(locale=locale,title='Coach Fitness PRO',short_description=short,full_description=full,review_status='machine_translation_requires_review' if not locale.startswith('en-') else 'source')

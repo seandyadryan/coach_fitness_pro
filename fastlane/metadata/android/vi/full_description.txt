@@ -24,5 +24,5 @@ Thiết kế Android gốc thích ứng với điện thoại, máy tính bảng
 
 Coach Fitness PRO cung cấp hướng dẫn tập thể dục chung cho người lớn từ 18 tuổi trở lên. Nó không phải là một thiết bị y tế và không cung cấp lời khuyên, chẩn đoán hoặc điều trị y tế. Nếu bạn có tình trạng sức khỏe, chấn thương hoặc đang mang thai, hãy tham khảo ý kiến ​​chuyên gia có trình độ trước khi tập luyện. Dừng lại nếu bạn cảm thấy đau, chóng mặt hoặc khó thở bất thường. Kết quả khác nhau tùy theo hoàn cảnh cá nhân.
 
-Được phát triển bởi PT Deploy Dulu Pulang Nanti.
-Hỗ trợ: seandyadryan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com

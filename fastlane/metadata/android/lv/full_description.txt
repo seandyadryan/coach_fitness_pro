@@ -24,5 +24,5 @@ Vietējais Android dizains pielāgojas tālruņiem, planšetdatoriem un logiem a
 
 Coach Fitness PRO sniedz vispārīgus fitnesa norādījumus pieaugušajiem no 18 gadu vecuma. Tā nav medicīnas ierīce un nesniedz medicīnisku padomu, diagnozi vai ārstēšanu. Ja jums ir veselības stāvoklis, traumas vai esat grūtniece, pirms treniņa konsultējieties ar kvalificētu speciālistu. Pārtrauciet, ja jūtat sāpes, reiboni vai neparastu elpas trūkumu. Rezultāti atšķiras atkarībā no individuālajiem apstākļiem.
 
-Izstrādāja PT Deploy Dulu Pulang Nanti.
-Atbalsts: seandyadryan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com

@@ -12,3 +12,5 @@ English is the source. Other languages are machine translations generated with G
 - Alternatively use Play Console → Translations → Store listings and products to generate/review its available machine translations. Google controls which languages are offered there; an import file cannot turn on all AI options.
 
 All listing images are intentionally English and shared across locales. Source short/full descriptions are in `store/short-description.txt` and `store/full-description.txt`. Both character limits are checked during generation. Re-run `tools/translate_listings.py` after editing the source. Only public listing copy is sent to the translation service.
+
+The final legal/contact block preserves the exact developer name and support email in every locale, because machine translation can otherwise transliterate or alter them. Both are validated in the release package checks.

@@ -1,0 +1,30 @@
+"""Create a Play Store handoff ZIP from verified CI binaries and public assets.
+
+The allowlist deliberately excludes JKS files, ignored signing properties,
+Gradle caches, emulator images and repository metadata.
+"""
+from pathlib import Path
+import hashlib,json,zipfile
+ROOT=Path(__file__).resolve().parents[1]
+OUT=ROOT/'artifacts/release'; OUT.mkdir(parents=True,exist_ok=True)
+def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
+files=[OUT/'CoachFitnessPRO-v1.0.0.apk',OUT/'CoachFitnessPRO-v1.0.0.aab',OUT/'mapping.txt']
+assert all(f.exists() for f in files)
+validation=json.loads((ROOT/'store/asset-validation.json').read_text())
+assert validation['status']=='PASS'
+assert 20<=validation['video_seconds']<=32
+manifest=dict(app='Coach Fitness PRO',developer='PT Deploy Dulu Pulang Nanti',application_id='com.deploydulupulangnanti.coachfitness',version_name='1.0.0',version_code=3,source_commit='941bf1eee922490e844ec8582d95de00cf90998a',build_run='https://github.com/seandyadryan/coach_fitness_pro/actions/runs/39214476702',privacy_url='https://seandyadryan.github.io/coach_fitness_pro/',listing_locales=86,screenshots=19,signing_key='External JKS, not included in this archive',youtube_url=None,files=[dict(name=f.name,bytes=f.stat().st_size,sha256=digest(f)) for f in files])
+(OUT/'release-manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
+archive=OUT/'CoachFitnessPRO-PlayStore-Package-v1.0.0.zip'
+with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as bundle:
+    for directory in ['store','docs','fastlane/metadata/android']:
+        for path in sorted((ROOT/directory).rglob('*')):
+            if path.is_file():
+                assert path.suffix.lower() not in ['.jks','.keystore','.pem']
+                bundle.write(path,path.relative_to(ROOT).as_posix())
+    for path in files: bundle.write(path,'android/'+path.name)
+    bundle.write(OUT/'release-manifest.json','release-manifest.json')
+    bundle.write(ROOT/'README.md','README.md')
+checksums=files+[archive,OUT/'release-manifest.json']
+(OUT/'SHA256SUMS.txt').write_text('\n'.join(f'{digest(path)}  {path.name}' for path in checksums)+'\n',encoding='utf-8')
+print(json.dumps(dict(archive=str(archive),bytes=archive.stat().st_size,sha256=digest(archive)),indent=2))

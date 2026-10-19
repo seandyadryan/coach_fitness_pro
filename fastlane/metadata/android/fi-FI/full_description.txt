@@ -24,5 +24,5 @@ Alkuperäinen Android-muotoilu mukautuu puhelimiin, tabletteihin ja ikkunoihin, 
 
 Coach Fitness PRO tarjoaa yleisohjeita 18-vuotiaille ja sitä vanhemmille aikuisille. Se ei ole lääketieteellinen laite, eikä se tarjoa lääketieteellistä neuvontaa, diagnoosia tai hoitoa. Jos sinulla on sairaus, vamma tai olet raskaana, ota yhteyttä pätevään ammattilaiseen ennen harjoittelua. Lopeta, jos tunnet kipua, huimausta tai epätavallista hengenahdistusta. Tulokset vaihtelevat yksilöllisten olosuhteiden mukaan.
 
-Kehittäjä: PT Deploy Dulu Pulang Nanti.
-Tuki: seandyadryan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com

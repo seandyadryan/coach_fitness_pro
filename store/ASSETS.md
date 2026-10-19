@@ -6,6 +6,6 @@ The lime dumbbell mark is an original geometric design implemented as an Android
 
 Phone, tablet and desktop-sized screenshots are direct Android emulator screen captures from the actual Kotlin application. No invented app UI or progress graph is painted into the screenshots. The progress screen can include a short QA workout completed using the app's supported skip controls. Its duration reflects the recorded session, not an invented training duration. Desktop screenshots depict an Android app on a large landscape display; there is no separate Windows app.
 
-The silent promotional MP4 is a 30-second Android screen recording of the actual app. All visible product and promotional copy is English. The photograph contains no text or third-party logos.
+The silent promotional MP4 is an approximately 25-second Android screen recording of the actual app, taken during a 30-second capture window. Its encoded duration is validated in `asset-validation.json`. All visible product and promotional copy is English. The photograph contains no text or third-party logos.
 
 Image requirements are checked by the capture script and summarized in `asset-validation.json`. Store listing icon is 512×512 PNG; feature artwork is 1024×500 PNG; screenshots use exact 9:16 or 16:9 aspect ratios.

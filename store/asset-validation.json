@@ -1,0 +1,140 @@
+{
+  "listing_locales": 86,
+  "english_short_characters": 79,
+  "english_full_characters": 2355,
+  "images": [
+    {
+      "file": "graphics\\app-icon-512.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 2099
+    },
+    {
+      "file": "graphics\\feature-graphic-1024x500.png",
+      "width": 1024,
+      "height": 500,
+      "bytes": 506546
+    },
+    {
+      "file": "screenshots\\phone\\01-today.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 665703
+    },
+    {
+      "file": "screenshots\\phone\\02-workouts.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 112420
+    },
+    {
+      "file": "screenshots\\phone\\03-workout-plan.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 139280
+    },
+    {
+      "file": "screenshots\\phone\\04-session.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 99168
+    },
+    {
+      "file": "screenshots\\phone\\05-progress.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 99028
+    },
+    {
+      "file": "screenshots\\phone\\06-profile.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 120012
+    },
+    {
+      "file": "screenshots\\phone\\07-exercise-library.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 110806
+    },
+    {
+      "file": "screenshots\\tablet-7\\01-today.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 301338
+    },
+    {
+      "file": "screenshots\\tablet-7\\02-workouts.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 52721
+    },
+    {
+      "file": "screenshots\\tablet-7\\03-progress.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 38530
+    },
+    {
+      "file": "screenshots\\tablet-7\\04-profile.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 42989
+    },
+    {
+      "file": "screenshots\\tablet-10\\01-today.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 588177
+    },
+    {
+      "file": "screenshots\\tablet-10\\02-workouts.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 85172
+    },
+    {
+      "file": "screenshots\\tablet-10\\03-progress.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 63185
+    },
+    {
+      "file": "screenshots\\tablet-10\\04-profile.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 71464
+    },
+    {
+      "file": "screenshots\\desktop\\01-today.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 329629
+    },
+    {
+      "file": "screenshots\\desktop\\02-workouts.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 84521
+    },
+    {
+      "file": "screenshots\\desktop\\03-progress.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 53236
+    },
+    {
+      "file": "screenshots\\desktop\\04-profile.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 69853
+    }
+  ],
+  "video_bytes": 815393,
+  "video_seconds": 25.183,
+  "video_dimensions": [
+    1080,
+    1920
+  ],
+  "status": "PASS"
+}

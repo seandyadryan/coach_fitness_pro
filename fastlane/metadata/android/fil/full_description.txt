@@ -24,5 +24,5 @@ Ang katutubong disenyo ng Android ay umaangkop sa mga telepono, tablet at mga re
 
 Nagbibigay ang Coach Fitness PRO ng pangkalahatang gabay sa fitness para sa mga nasa hustong gulang na 18 pataas. Ito ay hindi isang medikal na aparato at hindi nagbibigay ng medikal na payo, diagnosis o paggamot. Kung mayroon kang kondisyon sa kalusugan, pinsala o buntis, kumunsulta sa isang kwalipikadong propesyonal bago mag-ehersisyo. Huminto kung nakakaramdam ka ng sakit, pagkahilo o hindi pangkaraniwang igsi ng paghinga. Ang mga resulta ay nag-iiba ayon sa mga indibidwal na kalagayan.
 
-Binuo ng PT Deploy Dulu Pulang Nanti.
-Suporta: seandyadryan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com

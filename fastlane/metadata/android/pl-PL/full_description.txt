@@ -24,5 +24,5 @@ Natywny projekt Androida dostosowuje się do telefonów, tabletów i okien o zmi
 
 Coach Fitness PRO zapewnia ogólne wskazówki dotyczące ćwiczeń dla dorosłych w wieku 18 lat i starszych. Nie jest to wyrób medyczny i nie zapewnia porady medycznej, diagnozowania ani leczenia. Jeśli masz problemy zdrowotne, kontuzję lub jesteś w ciąży, przed rozpoczęciem ćwiczeń skonsultuj się z wykwalifikowanym specjalistą. Zatrzymaj się, jeśli poczujesz ból, zawroty głowy lub niezwykłą duszność. Wyniki różnią się w zależności od indywidualnych okoliczności.
 
-Opracowany przez PT Deploy Dulu Pulang Nanti.
-Wsparcie: seandyadryan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com

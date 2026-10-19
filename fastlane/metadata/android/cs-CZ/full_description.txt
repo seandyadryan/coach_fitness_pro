@@ -24,5 +24,5 @@ Nativní design Androidu se přizpůsobí telefonům, tabletům a oknům s měni
 
 Coach Fitness PRO poskytuje obecné poradenství v oblasti fitness pro dospělé ve věku 18 a více let. Nejedná se o zdravotnický prostředek a neposkytuje lékařské rady, diagnostiku ani léčbu. Pokud máte zdravotní stav, zranění nebo jste těhotná, poraďte se před cvičením s kvalifikovaným odborníkem. Přestaňte, pokud pocítíte bolest, závratě nebo neobvyklou dušnost. Výsledky se liší podle individuálních okolností.
 
-Vyvinutý PT Deploy Dulu Pulang Nanti.
-Podpora: seandyadryan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com

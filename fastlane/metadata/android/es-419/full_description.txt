@@ -24,5 +24,5 @@ El diseño nativo de Android se adapta a teléfonos, tabletas y ventanas de tama
 
 Coach Fitness PRO proporciona orientación general sobre fitness para adultos mayores de 18 años. No es un dispositivo médico y no proporciona asesoramiento, diagnóstico o tratamiento médico. Si tienes algún problema de salud, lesión o estás embarazada, consulta con un profesional cualificado antes de hacer ejercicio. Deténgase si siente dolor, mareos o dificultad para respirar inusual. Los resultados varían según las circunstancias individuales.
 
-Desarrollado por PT Deploy Dulu Pulang Nanti.
-Soporte: seandyadyan2@gmail.com
+PT Deploy Dulu Pulang Nanti
+Support: seandyadryan2@gmail.com
