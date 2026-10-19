@@ -47,4 +47,9 @@ class MovementTest {
             }
         }
     }
+    @Test fun forearmPlankPlacesElbowsBelowShouldersWithoutLengtheningTheUpperArm() {
+        val pose=MovementModel.sample("plank",.25f)
+        assertTrue(kotlin.math.abs(pose[BodyJoint.RS].x-pose[BodyJoint.RE].x)<5)
+        assertTrue(hypot(pose[BodyJoint.RS].x-pose[BodyJoint.RE].x,pose[BodyJoint.RS].y-pose[BodyJoint.RE].y) in 25f..40f)
+    }
 }

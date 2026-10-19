@@ -13,7 +13,7 @@ object MovementFrameExporter {
             }
             "{\"id\":${quote(spec.id)},\"name\":${quote(Catalog.exercises.first{it.id==spec.id}.name)},\"cycleMs\":${spec.cycleMs},\"view\":${quote(spec.viewLabel)},\"prop\":${quote(spec.prop.name)},\"firstCue\":${quote(spec.firstCue)},\"secondCue\":${quote(spec.secondCue)},\"frames\":$frames}"
         }
-        File(args.single()).apply { parentFile.mkdirs(); writeText(json) }
+        File(args.single()).apply { parentFile?.mkdirs(); writeText(json) }
         println("Exported ${MovementModel.specifications.size} production movement illustrations.")
     }
 }

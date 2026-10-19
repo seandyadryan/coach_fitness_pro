@@ -31,7 +31,8 @@ def render(spec,frame,index):
     limb('LS','LE','LW',False)
     top=[(a+b)/2 for a,b in zip(p['LS'],p['RS'])]; bottom=[(a+b)/2 for a,b in zip(p['LH'],p['RH'])]
     dx,dy=bottom[0]-top[0],bottom[1]-top[1]; length=max(1,math.hypot(dx,dy)); nx,ny=-dy/length,dx/length
-    chest=22 if spec['view']=='FRONT VIEW' else 16; waist=15 if spec['view']=='FRONT VIEW' else 13
+    shoulder_span=math.hypot(p['RS'][0]-p['LS'][0],p['RS'][1]-p['LS'][1])
+    chest=max(12,shoulder_span*.5+6) if spec['view']=='FRONT VIEW' else 16; waist=15 if spec['view']=='FRONT VIEW' else 13
     def edge(sign):
         a=[top[0]+nx*chest*sign,top[1]+ny*chest*sign]
         b=[top[0]+dx*.35+nx*chest*sign,top[1]+dy*.35+ny*chest*sign+frame['curve']]
@@ -41,7 +42,7 @@ def render(spec,frame,index):
     d.polygon([xy(point) for point in edge(1)+list(reversed(edge(-1)))],fill=COLORS['shirt'])
     limb('RH','RK','RA',True,True); line(p['RA'],p['RT'],9,COLORS['shoe'])
     limb('RS','RE','RW',True)
-    line(p['NECK'],p['HEAD'],9,COLORS['skin']); x,y=p['HEAD']; ellipse((x-12,y-15,x+12,y+15),COLORS['skin'])
+    line(top,p['NECK'],9,COLORS['skin']); line(p['NECK'],p['HEAD'],9,COLORS['skin']); x,y=p['HEAD']; ellipse((x-12,y-15,x+12,y+15),COLORS['skin'])
     d.pieslice(((x-12)*S,(y-17)*S,(x+12)*S,(y+3)*S),180,355,fill=COLORS['hair'])
     eyes=[x+7] if spec['view']=='SIDE VIEW' else [x-4,x+4]
     for eye in eyes: ellipse((eye-1,y,eye+1,y+2),COLORS['hair'])

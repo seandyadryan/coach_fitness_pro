@@ -63,7 +63,7 @@ object MovementModel {
         MovementSpec("child",6000,"SIDE VIEW","Reach forward comfortably","Breathe without forcing",hold=true),
         MovementSpec("rotation",6000,"FRONT VIEW","Turn your torso gently","Return through the center"),
         MovementSpec("shoulder",4800,"FRONT VIEW","Roll shoulders gently","Keep your neck relaxed"),
-        MovementSpec("curl",4800,"FRONT VIEW","Curl without swinging","Lower the weights slowly",MovementProp.DUMBBELLS),
+        MovementSpec("curl",4800,"SIDE VIEW","Curl without swinging","Lower the weights slowly",MovementProp.DUMBBELLS),
         MovementSpec("row",4800,"SIDE VIEW","Draw elbows toward your hips","Lower the weights slowly",MovementProp.DUMBBELLS),
         MovementSpec("goblet",4800,"SIDE VIEW","Keep the weight close","Stand smoothly",MovementProp.GOBLET)
     ).associateBy { it.id }
@@ -100,8 +100,9 @@ object MovementModel {
                 cycle(quadruped,reach,quadruped,reach.swapLimbs(),phase=t)
             }
             "plank" -> {
-                val hold=highPlank.change(BodyJoint.LE to p(240,219),BodyJoint.LW to p(282,225),BodyJoint.RE to p(250,220),BodyJoint.RW to p(292,226))
-                hold.change(BodyJoint.HEAD to p(279,125+wave),BodyJoint.NECK to p(257,138+wave),BodyJoint.LH to p(165,166+wave),BodyJoint.RH to p(174,169+wave))
+                val hold=lowPushup.change(BodyJoint.LE to p(240,220),BodyJoint.LW to p(282,225),BodyJoint.RE to p(250,221),BodyJoint.RW to p(292,226))
+                fun breath(joint: BodyJoint)=hold[joint].let { p(it.x,it.y+wave) }
+                hold.change(BodyJoint.HEAD to breath(BodyJoint.HEAD),BodyJoint.NECK to breath(BodyJoint.NECK),BodyJoint.LH to breath(BodyJoint.LH),BodyJoint.RH to breath(BodyJoint.RH))
             }
             "lunge" -> cycle(side,lunge,side,lunge.swapLimbs(),phase=t)
             "calf" -> {
@@ -138,18 +139,19 @@ object MovementModel {
             "child" -> pose(p(243,208+wave),p(222,196+wave),p(200,194+wave),p(244,212),p(286,225),p(209,197+wave),p(253,215),p(295,226),p(124,203+wave),p(175,224),p(127,222),p(110,230),p(133,205+wave),p(184,225),p(136,223),p(119,230))
             "rotation" -> {
                 val turn=wave*8
-                front.change(BodyJoint.HEAD to p(200+turn,60),BodyJoint.NECK to p(200+turn,84),BodyJoint.LS to p(184+turn,92+wave*2),BodyJoint.RS to p(216+turn,92-wave*2),BodyJoint.LE to p(173+turn,124),BodyJoint.LW to p(198+turn,123),BodyJoint.RE to p(227+turn,124),BodyJoint.RW to p(205+turn,123))
+                val halfSpan=16*cos(wave*.85f)
+                front.change(BodyJoint.HEAD to p(200+turn,60),BodyJoint.NECK to p(200+turn,84),BodyJoint.LS to p(200-halfSpan+turn,92+wave*2),BodyJoint.RS to p(200+halfSpan+turn,92-wave*2),BodyJoint.LE to p(173+turn,124),BodyJoint.LW to p(198+turn,123),BodyJoint.RE to p(227+turn,124),BodyJoint.RW to p(205+turn,123))
             }
             "shoulder" -> {
                 val dx=cos(t*2*PI).toFloat()*3; val dy=wave*4
                 front.change(BodyJoint.LS to p(184+dx,92+dy),BodyJoint.LE to p(175+dx,122+dy),BodyJoint.LW to p(176+dx,154+dy),BodyJoint.RS to p(216-dx,92+dy),BodyJoint.RE to p(225-dx,122+dy),BodyJoint.RW to p(224-dx,154+dy))
             }
             "curl" -> {
-                val low=front.change(BodyJoint.LE to p(174,125),BodyJoint.LW to p(174,158),BodyJoint.RE to p(226,125),BodyJoint.RW to p(226,158))
+                val low=side.change(BodyJoint.LE to p(194,125),BodyJoint.LW to p(194,158),BodyJoint.RE to p(204,125),BodyJoint.RW to p(204,158))
                 val amount=(1-cos(t*2*PI).toFloat())*.5f
                 val angle=PI.toFloat()*.5f-amount*2.62f
-                val wrist=p(174+cos(angle)*33,125+sin(angle)*33)
-                low.change(BodyJoint.LW to wrist,BodyJoint.RW to p(400-wrist.x,wrist.y))
+                val wrist=p(194+cos(angle)*33,125+sin(angle)*33)
+                low.change(BodyJoint.LW to wrist,BodyJoint.RW to p(wrist.x+10,wrist.y))
             }
             "row" -> {
                 val low=side.change(BodyJoint.HEAD to p(266,90),BodyJoint.NECK to p(246,103),BodyJoint.LS to p(226,114),BodyJoint.LE to p(226,152),BodyJoint.LW to p(224,187),BodyJoint.RS to p(235,116),BodyJoint.RE to p(237,154),BodyJoint.RW to p(235,189),BodyJoint.LH to p(175,157),BodyJoint.RH to p(184,159),BodyJoint.LK to p(192,188),BodyJoint.RK to p(202,190))

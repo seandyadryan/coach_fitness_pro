@@ -83,6 +83,7 @@ class MovementDemoView(context: Context, val exercise: Exercise) : View(context)
         torso(canvas,pose)
         leg(canvas,pose,BodyJoint.RH,BodyJoint.RK,BodyJoint.RA,BodyJoint.RT,true)
         arm(canvas,pose,BodyJoint.RS,BodyJoint.RE,BodyJoint.RW,true)
+        segment(canvas,pose[BodyJoint.LS].mix(pose[BodyJoint.RS],.5f),pose[BodyJoint.NECK],9f,skin)
         segment(canvas,pose[BodyJoint.NECK],pose[BodyJoint.HEAD],9f,skin)
         val head=pose[BodyJoint.HEAD]
         paint.color=skin; canvas.drawOval(head.x-12,head.y-15,head.x+12,head.y+15,paint)
@@ -123,7 +124,8 @@ class MovementDemoView(context: Context, val exercise: Exercise) : View(context)
         val bottom=p[BodyJoint.LH].mix(p[BodyJoint.RH],.5f)
         val dx=bottom.x-top.x; val dy=bottom.y-top.y; val length=hypot(dx,dy).coerceAtLeast(1f)
         val nx=-dy/length; val ny=dx/length
-        val chest=if(spec.viewLabel=="FRONT VIEW") 22f else 16f
+        val shoulderSpan=hypot(p[BodyJoint.RS].x-p[BodyJoint.LS].x,p[BodyJoint.RS].y-p[BodyJoint.LS].y)
+        val chest=if(spec.viewLabel=="FRONT VIEW") (shoulderSpan*.5f+6).coerceAtLeast(12f) else 16f
         val waist=if(spec.viewLabel=="FRONT VIEW") 15f else 13f
         val bend=p.spineCurve
         path.reset(); path.moveTo(top.x+nx*chest,top.y+ny*chest)
