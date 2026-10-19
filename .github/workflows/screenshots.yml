@@ -59,3 +59,4 @@ jobs:
             store/video/
             store/qa-results.json
             store/asset-validation.json
+            store/debug/

@@ -29,6 +29,17 @@ def find(value):
     options=[n for n in tree.iter('node') if n.get('content-desc','').casefold()==value.casefold()]
     options += [n for n in tree.iter('node') if n.get('text','').casefold()==value.casefold()]
     return options[0] if options else None
+def click_node(node):
+    x1,y1,x2,y2=map(int,re.findall(r'\d+',node.get('bounds')))
+    shell('input','tap',str((x1+x2)//2),str((y1+y2)//2)); time.sleep(.4)
+def confirm_dialog():
+    positive=next((n for n in nodes().iter('node') if n.get('resource-id')=='android:id/button1'),None)
+    assert positive is not None,'Dialog positive button missing'
+    click_node(positive)
+def background_pause():
+    shell('input','keyevent','3'); time.sleep(.4)
+    shell('am','start','-W','-n',PACKAGE+'/.MainActivity'); time.sleep(.5)
+    expect('Resume')
 def tap(value, scroll=False, click=True):
     for _ in range(9 if scroll else 2):
         node=find(value)
@@ -73,8 +84,10 @@ def main():
     tap('Workouts'); expect('Find your next challenge.'); capture('phone','02-workouts')
     tap('Cardio'); expect('Everyday Energy'); assert find('Full Body Foundation') is None; RESULTS.append('PASS workout category filter')
     tap('All'); tap('Full Body Foundation'); expect('THE GAME PLAN'); capture('phone','03-workout-plan')
-    tap('Start workout',scroll=True); tap('Start workout'); expect('March in place')
-    time.sleep(2); tap('Pause'); expect('Resume'); capture('phone','04-session')
+    tap('Start workout',scroll=True); expect('Move with care'); confirm_dialog(); time.sleep(2)
+    background_pause(); expect('March in place'); RESULTS.append('PASS background automatically pauses timer')
+    pause_node=find('Resume'); click_node(pause_node); time.sleep(2); click_node(pause_node)
+    expect('Resume'); RESULTS.append('PASS manual pause and resume controls'); capture('phone','04-session')
     clocks=[n for n in nodes().iter('node') if re.fullmatch(r'\d\d:\d\d',n.get('text',''))]
     def text_height(node):
         _,y1,_,y2=map(int,re.findall(r'\d+',node.get('bounds'))); return y2-y1
@@ -82,9 +95,9 @@ def main():
     time.sleep(2)
     assert find(clock_before) is not None; RESULTS.append('PASS paused timer does not decrement')
     launch(); tap('Resume your session'); expect('Resume'); RESULTS.append('PASS active session survives process restart paused')
-    tap('End session',scroll=True); tap('End session'); expect('Show up.\nGet stronger.')
-    tap('Workouts'); tap('Mobility'); tap('The 6-Minute Reset'); tap('Start workout',scroll=True); tap('Start workout')
-    time.sleep(3)
+    tap('End session',scroll=True); confirm_dialog(); expect('Show up.\nGet stronger.')
+    tap('Workouts'); tap('Mobility'); tap('The 6-Minute Reset'); tap('Start workout',scroll=True); confirm_dialog()
+    time.sleep(3); background_pause()
     # Exercise the supported skip controls to complete a genuine QA session.
     for _ in range(4): tap('Next exercise'); tap('Skip rest')
     tap('Finish workout'); expect('You showed up.'); tap('Progress'); expect('The 6-Minute Reset'); RESULTS.append('PASS completed session journal')
@@ -112,4 +125,13 @@ def main():
     errors=shell('dumpsys','activity','exit-info',PACKAGE)
     (ROOT/'store'/'qa-results.json').write_text(json.dumps(dict(device='Android API 35 x86_64 dedicated emulator',screenshots=19,checks=RESULTS,video='30 second native app recording',exit_info=errors),indent=2),encoding='utf-8')
     print('\n'.join(RESULTS),flush=True)
-if __name__=='__main__': main()
+if __name__=='__main__':
+    try: main()
+    except Exception:
+        debug=ROOT/'store/debug'; debug.mkdir(parents=True,exist_ok=True)
+        try:
+            (debug/'failure.png').write_bytes(adb('exec-out','screencap','-p',binary=True))
+            (debug/'failure.xml').write_text(shell('cat','/sdcard/coach-ui.xml'),encoding='utf-8')
+            (debug/'crash-log.txt').write_text(adb('logcat','-d','-b','crash','-t','100'),encoding='utf-8')
+        except Exception: pass
+        raise
