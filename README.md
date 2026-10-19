@@ -44,6 +44,8 @@ The repository secrets are `KEYSTORE_BASE64`, `KEYSTORE_PASSWORD`, `KEY_ALIAS` a
 
 `.github/workflows/pages.yml` publishes `docs/index.html` to GitHub Pages. The app also includes the privacy text offline. Public URL: https://seandyadryan.github.io/coach_fitness_pro/
 
+`.github/workflows/screenshots.yml` is a manually dispatched Android emulator QA job. Supply the run ID of a successful signed Android build. It downloads that APK, boots an accelerated Linux emulator, exercises the native UI, and uploads verified screenshots, a screen recording and a QA report as an artifact.
+
 ## Play Store handoff
 
 `store/` contains English short/full descriptions, store artwork, actual running-app screenshots, listing CSV/JSON, translation report and release guidance. See [store/TRANSLATIONS.md](store/TRANSLATIONS.md) and [store/RELEASE.md](store/RELEASE.md).

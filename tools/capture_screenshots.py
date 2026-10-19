@@ -26,8 +26,8 @@ def nodes():
             time.sleep(2)
 def find(value):
     tree=nodes()
-    options=[n for n in tree.iter('node') if n.get('content-desc')==value]
-    options += [n for n in tree.iter('node') if n.get('text')==value]
+    options=[n for n in tree.iter('node') if n.get('content-desc','').casefold()==value.casefold()]
+    options += [n for n in tree.iter('node') if n.get('text','').casefold()==value.casefold()]
     return options[0] if options else None
 def tap(value, scroll=False, click=True):
     for _ in range(9 if scroll else 2):

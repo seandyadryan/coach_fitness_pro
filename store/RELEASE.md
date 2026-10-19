@@ -1,10 +1,15 @@
 # Play Console release handoff
 
-Developer: **PT Deploy Dulu Pulang Nanti**  
-Support: **seandyadryan2@gmail.com**  
-Title: **Coach Fitness PRO**  
-Package: **com.deploydulupulangnanti.coachfitness**  
-Category: **Health & Fitness**  
+Developer: **PT Deploy Dulu Pulang Nanti**
+
+Support: **seandyadryan2@gmail.com**
+
+Title: **Coach Fitness PRO**
+
+Package: **com.deploydulupulangnanti.coachfitness**
+
+Category: **Health & Fitness**
+
 Default language: **English (United States)**
 
 ## Uploads
