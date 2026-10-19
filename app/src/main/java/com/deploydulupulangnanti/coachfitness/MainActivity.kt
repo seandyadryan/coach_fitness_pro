@@ -39,6 +39,9 @@ class MainActivity : Activity() {
     private var timerText: TextView? = null
     private var timerBar: ProgressBar? = null
     private var pauseButton: TextView? = null
+    private val movementDemos = mutableListOf<MovementDemoView>()
+    private var sessionDemo: MovementDemoView? = null
+    private var demosActive = false
     private val ticker = object : Runnable {
         override fun run() {
             if (running && screen == "Session") {
@@ -72,8 +75,9 @@ class MainActivity : Activity() {
         outState.putString("screen", screen); outState.putString("selected", selected)
         super.onSaveInstanceState(outState)
     }
-    override fun onPause() { pause(); super.onPause() }
-    override fun onDestroy() { handler.removeCallbacks(ticker); super.onDestroy() }
+    override fun onResume() { super.onResume(); demosActive = true; movementDemos.forEach { it.setHostActive(true) } }
+    override fun onPause() { demosActive = false; movementDemos.forEach { it.setHostActive(false) }; pause(); super.onPause() }
+    override fun onDestroy() { handler.removeCallbacks(ticker); movementDemos.forEach { it.setHostActive(false) }; movementDemos.clear(); super.onDestroy() }
     // Legacy button navigation on API 26–32. API 33+ uses the native
     // OnBackInvokedDispatcher callback registered in onCreate above.
     @android.annotation.SuppressLint("GestureBackNavigation")
@@ -111,6 +115,7 @@ class MainActivity : Activity() {
     }
     private fun navigate(destination: String) { if (screen == "Session") pause(); screen = destination; render() }
     private fun render() {
+        movementDemos.forEach { it.setHostActive(false) }; movementDemos.clear(); sessionDemo = null
         if (screen == "Session") window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         else window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         timerText = null; timerBar = null; pauseButton = null
@@ -254,13 +259,35 @@ class MainActivity : Activity() {
         back(); title("MOVE WITH CONFIDENCE", s(R.string.library), s(R.string.library_subtitle))
         grid(Catalog.exercises.map { e -> card().apply { add(text(e.name, 19, ink, true)); gap(7); add(text(e.area, 13, muted)); setOnClickListener { selected = e.id; navigate("Exercise") }; isFocusable = true } })
     }
-    private fun exerciseDetail() { back(); val e = Catalog.exercises.firstOrNull { it.id == selected } ?: Catalog.exercises.first(); title(e.area.uppercase(), e.name); val notes = card(); exerciseNotes(notes, e); body.add(notes) }
+    private fun exerciseDetail() { back(); val e = Catalog.exercises.firstOrNull { it.id == selected } ?: Catalog.exercises.first(); title(e.area.uppercase(), e.name); body.add(movementPanel(e)); body.gap(18); val notes = card(); exerciseNotes(notes, e); body.add(notes) }
+    private fun movementView(e: Exercise) = MovementDemoView(this,e).also { demo ->
+        demo.id = R.id.movement_demo
+        movementDemos.add(demo); demo.setHostActive(demosActive)
+    }
+    private fun movementPanel(e: Exercise): View = card().apply {
+        add(label(s(R.string.movement_demo)).apply { setTextColor(lime) }); gap(12)
+        val demo = movementView(e); add(demo,224); gap(12)
+        lateinit var control: TextView
+        fun controlLabel() = s(if(demo.motionReduced) R.string.next_pose else if(demo.requestedPlaying) R.string.pause_demo else R.string.play_demo)
+        control = action(controlLabel(),false) {
+            if(demo.motionReduced) demo.nextPose() else demo.setPlayback(!demo.requestedPlaying)
+            val value=controlLabel(); control.text=value; control.contentDescription=value
+        }
+        add(control); gap(12); add(text(s(R.string.movement_note),12,muted))
+    }
     private fun exerciseNotes(container: LinearLayout, e: Exercise) {
         container.add(label(s(R.string.form_notes))); container.gap(18)
         e.cues.forEachIndexed { i, cue -> container.add(text("${i + 1}.  $cue", 17, ink)); container.gap(18) }
         container.add(text("${s(R.string.equipment)}: ${e.equipment}", 13, lime)); container.gap(12); container.add(text(s(R.string.safety_text), 12, muted))
     }
-    private fun showExercise(e: Exercise) { AlertDialog.Builder(this).setTitle(e.name).setMessage(e.cues.mapIndexed { i, cue -> "${i + 1}. $cue" }.joinToString("\n\n")).setPositiveButton(android.R.string.ok, null).show() }
+    private fun showExercise(e: Exercise) {
+        val before=movementDemos.toSet()
+        val content=column().apply { setPadding(dp(16),dp(12),dp(16),dp(16)); add(movementPanel(e)); gap(16); e.cues.forEachIndexed { i,cue -> add(text("${i+1}. $cue",15)); gap(14) } }
+        val scroll=ScrollView(this).apply { addView(content) }
+        AlertDialog.Builder(this).setTitle(e.name).setView(scroll).setPositiveButton(android.R.string.ok,null).create().apply {
+            setOnDismissListener { val removed=movementDemos.filter { it !in before }; removed.forEach { it.setHostActive(false) }; movementDemos.removeAll(removed.toSet()) }
+        }.show()
+    }
     private fun progress() {
         header(); title("YOUR EFFORT, MADE VISIBLE", s(R.string.progress_title), s(R.string.progress_subtitle))
         val sessions = store.sessions(); val stats = row()
@@ -287,7 +314,7 @@ class MainActivity : Activity() {
         body.add(action(s(R.string.support), false) { try { startActivity(Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:seandyadryan2@gmail.com?subject=Coach%20Fitness%20PRO%20support"))) } catch (_: Exception) { Toast.makeText(this, s(R.string.no_email), Toast.LENGTH_LONG).show() } }); body.gap(10)
         body.add(action(s(R.string.reset_water), false) { store.setWater(0); render() }); body.gap(10)
         body.add(action(s(R.string.delete_data), false) { AlertDialog.Builder(this).setTitle(s(R.string.delete_data)).setMessage(s(R.string.delete_message)).setNegativeButton(s(R.string.cancel), null).setPositiveButton(s(R.string.delete)) { _, _ -> store.clear(); running = false; render() }.show() }); body.gap(22)
-        body.add(text("${s(R.string.app_name)} · 1.0.0\n${s(R.string.developer)}", 12, muted)); body.gap(15); body.add(text(s(R.string.safety_text), 12, muted))
+        body.add(text("${s(R.string.app_name)} · 1.1.0\n${s(R.string.developer)}", 12, muted)); body.gap(15); body.add(text(s(R.string.safety_text), 12, muted))
     }
     private fun openUrl(url: String) { try { startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) } catch (_: Exception) { Toast.makeText(this, s(R.string.no_browser), Toast.LENGTH_LONG).show() } }
     private fun begin(w: Workout) {
@@ -310,6 +337,7 @@ class MainActivity : Activity() {
     private fun updatePauseButton() {
         val title = s(if (running) R.string.pause else R.string.resume)
         pauseButton?.apply { text = title; contentDescription = title }
+        sessionDemo?.setPlayback(running)
     }
     private fun refreshClock() {
         val secs = (remaining.coerceAtLeast(0) + 999) / 1000
@@ -329,8 +357,9 @@ class MainActivity : Activity() {
         title(getString(R.string.session_counter, index + 1, w.movements().size), if (rest) s(R.string.rest) else exercise.name, if (rest) s(R.string.rest_hint) else exercise.area)
         val timer = card().apply { gravity = Gravity.CENTER_HORIZONTAL; setPadding(dp(24), dp(30), dp(24), dp(30)) }
         timer.addView(text(if (rest) "RECOVER" else "MOVE AT YOUR PACE", 11, lime, true).apply { letterSpacing = .12f })
-        timer.gap(20); timerText = text("", 72, ink, true).apply { gravity = Gravity.CENTER; typeface = Typeface.create("sans-serif-light", Typeface.NORMAL) }; timer.add(timerText!!); timer.gap(20)
-        timerBar = progressBar(0, if (rest) 30000 else exercise.seconds * 1000); timer.add(timerBar!!); timer.gap(24)
+        if(!rest) { timer.gap(12); sessionDemo=movementView(exercise).apply { setPlayback(running) }; timer.add(sessionDemo!!,156) }
+        timer.gap(12); timerText = text("", 56, ink, true).apply { gravity = Gravity.CENTER; typeface = Typeface.create("sans-serif-light", Typeface.NORMAL) }; timer.add(timerText!!); timer.gap(12)
+        timerBar = progressBar(0, if (rest) 30000 else exercise.seconds * 1000); timer.add(timerBar!!); timer.gap(18)
         pauseButton = action(s(if (running) R.string.pause else R.string.resume)) { if (running) pause() else { running = true; lastTick = SystemClock.elapsedRealtime(); updatePauseButton() } }; timer.add(pauseButton!!); timer.gap(12)
         timer.add(action(s(if (rest) R.string.skip_rest else if (index == w.movements().lastIndex) R.string.finish else R.string.next), false) { if (running) { val delta = SystemClock.elapsedRealtime() - lastTick; totalMs += delta; lastTick = SystemClock.elapsedRealtime() }; advance() }); body.add(timer); body.gap(20)
         if (!rest) { val notes = card(); notes.add(label(s(R.string.form_notes))); notes.gap(14); exercise.cues.forEach { notes.add(text("•  $it", 15, ink)); notes.gap(12) }; body.add(notes); body.gap(15) }

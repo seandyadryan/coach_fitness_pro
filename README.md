@@ -2,11 +2,12 @@
 
 Native Kotlin Android fitness app by **PT Deploy Dulu Pulang Nanti**.
 
-Package: `com.deploydulupulangnanti.coachfitness` · Android 8.0+ (API 26) · Target API 36 · Version 1.0.0.
+Package: `com.deploydulupulangnanti.coachfitness` · Android 8.0+ (API 26) · Target API 36 · Version 1.1.0.
 
 ## What works
 
 - 8 structured routines and 21 exercises with written form cues.
+- Offline animated movement illustrations for all 21 exercises, in exercise guides, routine dialogs and active sessions. Includes play/pause, session synchronization and manual pose stepping when system animations are disabled.
 - Exercise countdown, 30-second rests, pause/resume, skip and completion journal.
 - Unfinished sessions saved locally and paused when the app goes into the background.
 - Weekly activity, total training time, session goal and current day streak.
@@ -54,6 +55,6 @@ Publishing to Google Play and uploading a video to YouTube require the owner's c
 
 ## Development tools
 
-`tools/prepare_assets.py` packages the original generated hero photo into store artwork and creates the geometric app mark. `tools/translate_listings.py` generates and validates listing translations. `tools/capture_screenshots.py` captures the native app from an Android emulator, exercises main flows and checks screenshot dimensions. Install `tools/requirements.txt` in Python for image processing.
+`tools/prepare_assets.py` packages the original generated hero photo into store artwork and creates the geometric app mark. `tools/translate_listings.py` generates and validates listing translations. `tools/capture_screenshots.py` captures the native app from an Android emulator, exercises main flows and checks screenshot dimensions. `tools/check_movement_demos.py` checks native playback, reduced-motion controls and synchronization with the session. `gradlew :app:exportMovementFrames` exports production pose data; `tools/render_movement_previews.py` turns it into looping GIF previews. Install `tools/requirements.txt` in Python for image processing.
 
 Workout content is general guidance for adults, not individual medical advice. The release checklist explains the remaining store-account declarations and review work.

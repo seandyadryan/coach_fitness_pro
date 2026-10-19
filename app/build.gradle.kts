@@ -10,8 +10,8 @@ android {
         applicationId = "com.deploydulupulangnanti.coachfitness"
         minSdk = 26
         targetSdk = 36
-        versionCode = (System.getenv("VERSION_CODE") ?: "1").toInt()
-        versionName = "1.0.0"
+        versionCode = (System.getenv("VERSION_CODE") ?: "4").toInt()
+        versionName = "1.1.0"
         testInstrumentationRunner = "android.test.InstrumentationTestRunner"
     }
     signingConfigs { if (hasReleaseKey) create("release") {
@@ -33,6 +33,12 @@ android {
     lint { abortOnError = true; checkReleaseBuilds = true }
 }
 dependencies { testImplementation("junit:junit:4.13.2") }
+tasks.register<JavaExec>("exportMovementFrames") {
+    dependsOn("compileDebugUnitTestKotlin")
+    classpath = files(layout.buildDirectory.dir("tmp/kotlin-classes/debug"),layout.buildDirectory.dir("tmp/kotlin-classes/debugUnitTest")) + configurations.getByName("debugUnitTestRuntimeClasspath")
+    mainClass.set("com.deploydulupulangnanti.coachfitness.MovementFrameExporter")
+    args(layout.buildDirectory.file("reports/movement-frames.json").get().asFile.absolutePath)
+}
 tasks.matching { it.name == "validateSigningRelease" || it.name == "packageReleaseBundle" }.configureEach {
     doFirst { check(hasReleaseKey) { "Release signing is required. Configure keystore.properties or signing environment variables." } }
 }

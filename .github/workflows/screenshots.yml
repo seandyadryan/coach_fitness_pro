@@ -48,6 +48,7 @@ jobs:
           script: |
             adb install "$(find release-build -name app-release.apk -print -quit)"
             python tools/capture_screenshots.py
+            python tools/check_movement_demos.py
             python tools/validate_package.py
       - name: Upload real screenshots, video and QA report
         if: always()
@@ -60,3 +61,6 @@ jobs:
             store/qa-results.json
             store/asset-validation.json
             store/debug/
+            store/animations/
+            store/movement-qa.json
+            artifacts/movement-qa/
