@@ -4,11 +4,11 @@ This clears this app's data on the selected emulator. Do not point at a personal
 device. Set ANDROID_SERIAL to select the dedicated QA emulator if necessary.
 """
 from pathlib import Path
-import json, os, re, subprocess, time, xml.etree.ElementTree as ET
+import json, os, re, shutil, subprocess, time, xml.etree.ElementTree as ET
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
-ADB=Path(os.environ.get('ANDROID_HOME', str(Path.home()/'AppData/Local/Android/Sdk')))/'platform-tools/adb.exe'
+ADB=shutil.which('adb') or str(Path(os.environ.get('ANDROID_HOME', str(Path.home()/'AppData/Local/Android/Sdk')))/'platform-tools/adb.exe')
 PACKAGE='com.deploydulupulangnanti.coachfitness'
 DEST=ROOT/'store/screenshots'
 RESULTS=[]
@@ -17,8 +17,13 @@ def adb(*args, binary=False):
     return result.stdout if binary else result.stdout.decode('utf-8',errors='replace').strip()
 def shell(*args): return adb('shell',*args)
 def nodes():
-    shell('uiautomator','dump','/sdcard/coach-ui.xml')
-    return ET.fromstring(shell('cat','/sdcard/coach-ui.xml'))
+    for attempt in range(4):
+        try:
+            shell('uiautomator','dump','/sdcard/coach-ui.xml')
+            return ET.fromstring(shell('cat','/sdcard/coach-ui.xml'))
+        except (subprocess.CalledProcessError,ET.ParseError,subprocess.TimeoutExpired):
+            if attempt==3: raise
+            time.sleep(2)
 def find(value):
     tree=nodes()
     options=[n for n in tree.iter('node') if n.get('content-desc')==value]
@@ -42,9 +47,10 @@ def expect(value):
     assert find(value) is not None,f'Expected UI text: {value}'
     RESULTS.append('PASS '+value)
 def launch():
-    shell('am','force-stop',PACKAGE); shell('am','start','-n',PACKAGE+'/.MainActivity'); time.sleep(1)
+    shell('am','force-stop',PACKAGE); shell('am','start','-W','-n',PACKAGE+'/.MainActivity'); time.sleep(2)
 def capture(category,name):
     path=DEST/category/(name+'.png'); path.parent.mkdir(parents=True,exist_ok=True)
+    assert sum(1 for n in nodes().iter('node') if n.get('package')==PACKAGE)>5,'App UI not ready for capture'
     time.sleep(.5); path.write_bytes(adb('exec-out','screencap','-p',binary=True))
     with Image.open(path) as image:
         w,h=image.size
@@ -69,7 +75,10 @@ def main():
     tap('All'); tap('Full Body Foundation'); expect('THE GAME PLAN'); capture('phone','03-workout-plan')
     tap('Start workout',scroll=True); tap('Start workout'); expect('March in place')
     time.sleep(2); tap('Pause'); expect('Resume'); capture('phone','04-session')
-    clock_before=[n.get('text') for n in nodes().iter('node') if re.fullmatch(r'\d\d:\d\d',n.get('text',''))][0]
+    clocks=[n for n in nodes().iter('node') if re.fullmatch(r'\d\d:\d\d',n.get('text',''))]
+    def text_height(node):
+        _,y1,_,y2=map(int,re.findall(r'\d+',node.get('bounds'))); return y2-y1
+    clock_before=max(clocks,key=text_height).get('text')
     time.sleep(2)
     assert find(clock_before) is not None; RESULTS.append('PASS paused timer does not decrement')
     launch(); tap('Resume your session'); expect('Resume'); RESULTS.append('PASS active session survives process restart paused')
