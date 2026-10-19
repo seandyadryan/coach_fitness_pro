@@ -1,5 +1,7 @@
 # Signed build verification
 
+Historical verification for version 1.0.0. See `ANIMATION-RELEASE.md` for version 1.1.0 and its native movement QA.
+
 Release source: `941bf1eee922490e844ec8582d95de00cf90998a` (later commits package documentation, assets and capture tooling only).
 
 GitHub Actions run: https://github.com/seandyadryan/coach_fitness_pro/actions/runs/39214476702

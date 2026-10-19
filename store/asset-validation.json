@@ -37,7 +37,7 @@
       "file": "screenshots\\phone\\04-session.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 99168
+      "bytes": 117810
     },
     {
       "file": "screenshots\\phone\\05-progress.png",
@@ -56,6 +56,12 @@
       "width": 1080,
       "height": 1920,
       "bytes": 110806
+    },
+    {
+      "file": "screenshots\\phone\\08-exercise-demo.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 137060
     },
     {
       "file": "screenshots\\tablet-7\\01-today.png",
@@ -136,5 +142,13 @@
     1080,
     1920
   ],
+  "screenshot_count": 20,
+  "movement_animation_count": 21,
+  "native_movement_video": {
+    "seconds": 7.28,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 1008923
+  },
   "status": "PASS"
 }

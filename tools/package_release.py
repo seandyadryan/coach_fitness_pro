@@ -38,5 +38,13 @@ with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as bundle:
     bundle.write(OUT/'release-manifest.json','release-manifest.json')
     bundle.write(ROOT/'README.md','README.md')
 checksums=files+[archive,OUT/'release-manifest.json']
+if args.require_movements:
+    animation_archive=OUT/f'CoachFitnessPRO-Movement-Animations-v{args.version}.zip'
+    with zipfile.ZipFile(animation_archive,'w',zipfile.ZIP_DEFLATED) as bundle:
+        for path in sorted((ROOT/'store/animations').rglob('*')):
+            if path.is_file(): bundle.write(path,path.relative_to(ROOT/'store').as_posix())
+        for name in ['movement-qa.json','ANIMATION-RELEASE.md']:
+            bundle.write(ROOT/'store'/name,name)
+    checksums.append(animation_archive)
 (OUT/'SHA256SUMS.txt').write_text('\n'.join(f'{digest(path)}  {path.name}' for path in checksums)+'\n',encoding='utf-8')
 print(json.dumps(dict(archive=str(archive),bytes=archive.stat().st_size,sha256=digest(archive)),indent=2))

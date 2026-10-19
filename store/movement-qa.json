@@ -1,0 +1,11 @@
+{
+  "device": "Android API 35 x86_64 emulator",
+  "checks": [
+    "PASS reduced-motion still frame and manual pose stepping: Bodyweight squat",
+    "PASS reduced-motion still frame and manual pose stepping: Push-up",
+    "PASS reduced-motion still frame and manual pose stepping: Dumbbell curl",
+    "PASS preview plays, pauses and resumes",
+    "PASS session resume animates, pause/background freeze its illustration, and rest hides exercise motion"
+  ],
+  "native_video": "animations/movement-demo.mp4"
+}

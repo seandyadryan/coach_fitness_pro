@@ -8,4 +8,6 @@ Phone, tablet and desktop-sized screenshots are direct Android emulator screen c
 
 The silent promotional MP4 is an approximately 25-second Android screen recording of the actual app, taken during a 30-second capture window. Its encoded duration is validated in `asset-validation.json`. All visible product and promotional copy is English. The photograph contains no text or third-party logos.
 
+Version 1.1.0 adds 21 illustrated looping GIF previews generated from the production Kotlin pose model, plus a separate native Android recording of the movement demo. The GIFs are illustration assets rather than app screenshots. `animations/native-checks/` contains actual cropped Android view captures used to check manual pose stepping. The refreshed session screenshot and the eighth phone screenshot show the new animation UI. See `ANIMATION-RELEASE.md` and `movement-qa.json` for the corresponding verification.
+
 Image requirements are checked by the capture script and summarized in `asset-validation.json`. Store listing icon is 512×512 PNG; feature artwork is 1024×500 PNG; screenshots use exact 9:16 or 16:9 aspect ratios.

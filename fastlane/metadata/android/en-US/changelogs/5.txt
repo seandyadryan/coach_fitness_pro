@@ -1,0 +1,8 @@
+New in Coach Fitness PRO 1.1.0:
+
+- Animated movement guides for all 21 exercises.
+- View demos in exercise details, workout plans and active sessions.
+- Play or pause guide previews independently.
+- Session animations follow workout pause and resume controls.
+- Use manual pose stepping when Android animations are disabled.
+- All movement guides work offline with no extra downloads.
