@@ -10,9 +10,9 @@ android {
         applicationId = "com.deploydulupulangnanti.coachfitness"
         minSdk = 26
         targetSdk = 36
-        versionCode = (System.getenv("VERSION_CODE") ?: "6").toInt()
-        versionName = "1.2.0"
-        testInstrumentationRunner = "android.test.InstrumentationTestRunner"
+        versionCode = (System.getenv("VERSION_CODE") ?: "7").toInt()
+        versionName = "1.2.1"
+        testInstrumentationRunner = "com.deploydulupulangnanti.coachfitness.CharacterRenderInstrumentation"
     }
     signingConfigs { if (hasReleaseKey) create("release") {
         storeFile = file(requireNotNull(secret("KEYSTORE_FILE")))

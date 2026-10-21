@@ -13,6 +13,7 @@ parser.add_argument('--source-commit',default='941bf1eee922490e844ec8582d95de00c
 parser.add_argument('--build-run',default='https://github.com/seandyadryan/coach_fitness_pro/actions/runs/39214476702')
 parser.add_argument('--directory',type=Path,default=ROOT/'artifacts/release')
 parser.add_argument('--require-movements',action='store_true')
+parser.add_argument('--require-connected-character',action='store_true')
 args=parser.parse_args()
 OUT=args.directory; OUT.mkdir(parents=True,exist_ok=True)
 def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -21,6 +22,10 @@ assert all(f.exists() for f in files)
 validation=json.loads((ROOT/'store/asset-validation.json').read_text())
 assert validation['status']=='PASS'
 assert 20<=validation['video_seconds']<=32
+if args.require_connected_character:
+    connected=validation['native_character_connectivity']
+    assert connected['status']=='PASS' and connected['poses']==168
+    assert connected['version_name']==args.version and connected['version_code']==args.version_code
 if args.require_movements:
     assert validation['movement_animation_count']==21
     assert validation['native_movement_video']['seconds']>=5
@@ -33,6 +38,7 @@ manifest=dict(app='Coach Fitness PRO',developer='PT Deploy Dulu Pulang Nanti',ap
 if validation.get('photo_character_textures'):
     manifest['photo_character_textures']=len(validation['photo_character_textures'])
     manifest['character_style']='Native 2D rig with generated photographic textures'
+if args.require_connected_character: manifest['native_character_pose_checks']=168
 (OUT/'release-manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
 archive=OUT/f'CoachFitnessPRO-PlayStore-Package-v{args.version}.zip'
 with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as bundle:

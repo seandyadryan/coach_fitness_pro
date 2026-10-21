@@ -58,6 +58,10 @@ def main():
     ui.tap('End session',scroll=True); ui.confirm_dialog()
     checks.append('PASS session resume animates, pause/background freeze its illustration, and rest hides exercise motion')
     ui.shell('settings','put','global','animator_duration_scale','0')
+    ui.launch(); ui.tap('Profile'); ui.capture('phone','06-profile')
+    for category,w,h,density in [('tablet-7',1280,720,160),('tablet-10',1920,1080,240),('desktop',1920,1080,160)]:
+        ui.configure(w,h,density); ui.tap('Profile'); ui.capture(category,'04-profile')
+    ui.configure(1080,1920,360)
     (ROOT/'store/movement-qa.json').write_text(json.dumps(dict(device='Android API 35 x86_64 emulator',version_name=version_name,version_code=version_code,recorded_at=datetime.now(timezone.utc).isoformat(),checks=checks,native_video='animations/movement-demo.mp4'),indent=2),encoding='utf-8')
     print('\n'.join(checks),flush=True)
 if __name__=='__main__': main()

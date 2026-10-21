@@ -1,0 +1,5 @@
+Coach Fitness PRO 1.2.1 — Connected Character
+
+Fixed visible gaps between the character’s head, neck and torso. A continuous photographic mesh now keeps these parts connected while following each exercise pose. Shoulder and hip attachments also overlap naturally.
+
+All 21 exercise guides retain their existing movement patterns, offline playback, play/pause and reduced-motion controls.

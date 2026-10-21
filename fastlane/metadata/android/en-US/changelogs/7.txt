@@ -1,0 +1,1 @@
+Fixed gaps between the animated character’s head, neck and torso. A connected photographic mesh keeps the character together across exercise poses, with improved shoulder and hip attachments. All 21 exercises retain offline playback, play/pause and reduced-motion controls.

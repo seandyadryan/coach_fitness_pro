@@ -42,6 +42,13 @@ jobs:
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
+      - name: Download native character render checks
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.build_run_id }}
+          name: debug-apk-and-reports
+          path: debug-build
       - name: Start Android and capture real app screens
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -52,6 +59,14 @@ jobs:
           disable-animations: true
           emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -no-snapshot-save
           script: |
+            adb install "$(find debug-build -name app-debug.apk -print -quit)"
+            adb install "$(find debug-build -name app-debug-androidTest.apk -print -quit)"
+            adb shell am instrument -w com.deploydulupulangnanti.coachfitness.test/com.deploydulupulangnanti.coachfitness.CharacterRenderInstrumentation | tee character-render.txt
+            mkdir -p store/character/native-checks
+            adb pull /sdcard/Android/data/com.deploydulupulangnanti.coachfitness/files/character-qa/. store/character/native-checks/
+            grep -q 'character_checks=PASS' character-render.txt
+            adb uninstall com.deploydulupulangnanti.coachfitness.test
+            adb uninstall com.deploydulupulangnanti.coachfitness
             adb install "$(find release-build -name app-release.apk -print -quit)"
             python tools/run_native_qa.py --mode ${{ inputs.qa_mode }}
       - name: Upload real screenshots, video and QA report
@@ -67,3 +82,4 @@ jobs:
             store/debug/
             store/animations/
             store/movement-qa.json
+            store/character/native-checks/

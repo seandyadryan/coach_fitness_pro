@@ -3,7 +3,7 @@
 These are animation previews. The native MP4 and QA PNGs capture the Android View.
 """
 from pathlib import Path
-from PIL import Image,ImageDraw,ImageFont,ImageEnhance
+from PIL import Image,ImageDraw,ImageFont,ImageEnhance,ImageChops
 import argparse,json,math
 ROOT=Path(__file__).resolve().parents[1]
 S=2
@@ -15,18 +15,50 @@ def font(size,bold=False):
         if path.exists(): return ImageFont.truetype(str(path),int(size*S))
     return ImageFont.load_default()
 
+def mesh_triangle(stage,source,destination,uv):
+    # Rasterize the production Android mesh with inverse affine texture sampling.
+    (x0,y0),(x1,y1),(x2,y2)=destination
+    determinant=(x1-x0)*(y2-y0)-(x2-x0)*(y1-y0)
+    if abs(determinant)<1e-6: return
+    left=max(0,math.floor(min(x0,x1,x2))); top=max(0,math.floor(min(y0,y1,y2)))
+    right=min(stage.width,math.ceil(max(x0,x1,x2))+1); bottom=min(stage.height,math.ceil(max(y0,y1,y2))+1)
+    if right<=left or bottom<=top: return
+    def coefficients(values):
+        v0,v1,v2=values
+        a=((v1-v0)*(y2-y0)-(v2-v0)*(y1-y0))/determinant
+        b=((x1-x0)*(v2-v0)-(x2-x0)*(v1-v0))/determinant
+        return a,b,v0-a*x0-b*y0+a*left+b*top
+    a=coefficients([p[0]*(source.width-1) for p in uv]); b=coefficients([p[1]*(source.height-1) for p in uv])
+    tile=source.transform((right-left,bottom-top),Image.Transform.AFFINE,(*a,*b),Image.Resampling.BICUBIC)
+    mask=Image.new('L',tile.size)
+    ImageDraw.Draw(mask).polygon([(x-left,y-top) for x,y in destination],fill=255)
+    tile.putalpha(ImageChops.multiply(tile.getchannel('A'),mask)); stage.alpha_composite(tile,(left,top))
+
 def photo_sprite(stage,sprite):
     source=TEXTURES[sprite['part']]
+    if sprite.get('mesh'):
+        points=[(x*S,y*S) for x,y in sprite['mesh']]
+        rows=len(points)//3-1
+        for row in range(rows):
+            for col in range(2):
+                a=row*3+col; b=a+1; c=a+3; d=c+1
+                u0=col/2; u1=(col+1)/2; v0=row/rows; v1=(row+1)/rows
+                mesh_triangle(stage,source,[points[a],points[b],points[c]],[(u0,v0),(u1,v0),(u0,v1)])
+                mesh_triangle(stage,source,[points[b],points[d],points[c]],[(u1,v0),(u1,v1),(u0,v1)])
+        return
     w=max(1,round(sprite['width']*S)); h=max(1,round(sprite['height']*S))
     part=source.resize((w,h),Image.Resampling.LANCZOS)
     if sprite['shade']<1:
         alpha=part.getchannel('A'); part=ImageEnhance.Brightness(part).enhance(sprite['shade']); part.putalpha(alpha)
     # Reproduce the production torso mesh as narrow horizontal texture strips.
-    padding=math.ceil(abs(sprite['bend'])*S)+2 if sprite['bend'] else 0
-    warped=Image.new('RGBA',(w+padding*2,h)) if sprite['bend'] else part
-    if sprite['bend']:
+    body=sprite['part'].startswith('body_')
+    side=sprite['part']=='body_side'
+    padding=math.ceil(abs(sprite['bend'])*S+w*.1)+2 if body else 0
+    warped=Image.new('RGBA',(w+padding*2,h)) if body else part
+    if body:
         for row in range(h):
-            t=row/max(1,h-1); offset=round(-sprite['bend']*S*4*t*(1-t))
+            t=max(0,min(1,(row/max(1,h-1)-.44)/.5))
+            offset=round(-sprite['bend']*S*4*t*(1-t)-(w*.1*t*t*(3-2*t) if side else 0))
             warped.alpha_composite(part.crop((0,row,w,row+1)),(padding+offset,row))
     px=padding+sprite['pivotX']*w; py=sprite['pivotY']*h
     size=math.ceil(max(warped.width,warped.height)*2.5)

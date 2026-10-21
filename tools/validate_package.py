@@ -55,10 +55,17 @@ report['video_dimensions']=[main_video['width'],main_video['height']]
 report['screenshot_count']=len(report['images'])-2
 animations=list((store/'animations').glob('*.gif'))
 report['movement_animation_count']=len(animations)
+connectivity_path=store/'character/native-checks/connectivity.json'
+if connectivity_path.exists():
+    connectivity=json.loads(connectivity_path.read_text(encoding='utf-8'))
+    assert connectivity['status']=='PASS' and connectivity['pose_count']==168
+    assert len({check['exercise'] for check in connectivity['checks']})==21
+    assert all(check['status']=='PASS' and check['head_neck_torso_connected'] and not check['detached_joint_anchors'] for check in connectivity['checks'])
+    report['native_character_connectivity']={'status':'PASS','poses':168,'version_name':connectivity['version_name'],'version_code':connectivity['version_code']}
 character_manifest=store/'character/textures.json'
 if character_manifest.exists():
     textures=json.loads(character_manifest.read_text(encoding='utf-8'))
-    assert len(textures)==12
+    assert len(textures)==10
     character_files=[]
     for name,metadata in textures.items():
         path=ROOT/'app/src/main/res/drawable-nodpi'/f'athlete_{name}.webp'

@@ -1,73 +1,6 @@
 {
-  "head_front": {
-    "source_crop": [
-      45,
-      0,
-      350,
-      394
-    ],
-    "alpha_crop": [
-      18,
-      0,
-      303,
-      394
-    ],
-    "width": 285,
-    "height": 394,
-    "bytes": 130046
-  },
-  "head_side": {
-    "source_crop": [
-      390,
-      0,
-      735,
-      394
-    ],
-    "alpha_crop": [
-      9,
-      1,
-      344,
-      394
-    ],
-    "width": 335,
-    "height": 393,
-    "bytes": 148314
-  },
-  "torso_front": {
-    "source_crop": [
-      775,
-      0,
-      1120,
-      397
-    ],
-    "alpha_crop": [
-      0,
-      5,
-      343,
-      393
-    ],
-    "width": 343,
-    "height": 388,
-    "bytes": 109182
-  },
-  "torso_side": {
-    "source_crop": [
-      1200,
-      0,
-      1448,
-      401
-    ],
-    "alpha_crop": [
-      10,
-      1,
-      222,
-      401
-    ],
-    "width": 212,
-    "height": 400,
-    "bytes": 74082
-  },
   "upper_arm": {
+    "source": "athlete-atlas.png",
     "source_crop": [
       105,
       395,
@@ -85,6 +18,7 @@
     "bytes": 51178
   },
   "forearm": {
+    "source": "athlete-atlas.png",
     "source_crop": [
       495,
       397,
@@ -102,6 +36,7 @@
     "bytes": 39552
   },
   "thigh": {
+    "source": "athlete-atlas.png",
     "source_crop": [
       815,
       400,
@@ -119,6 +54,7 @@
     "bytes": 68456
   },
   "calf": {
+    "source": "athlete-atlas.png",
     "source_crop": [
       1220,
       401,
@@ -136,6 +72,7 @@
     "bytes": 45150
   },
   "hand": {
+    "source": "athlete-atlas.png",
     "source_crop": [
       85,
       742,
@@ -153,6 +90,7 @@
     "bytes": 60674
   },
   "grip": {
+    "source": "athlete-atlas.png",
     "source_crop": [
       460,
       747,
@@ -170,6 +108,7 @@
     "bytes": 47652
   },
   "shoe_front": {
+    "source": "athlete-atlas.png",
     "source_crop": [
       795,
       747,
@@ -187,6 +126,7 @@
     "bytes": 58094
   },
   "shoe_side": {
+    "source": "athlete-atlas.png",
     "source_crop": [
       1085,
       755,
@@ -202,5 +142,41 @@
     "width": 363,
     "height": 250,
     "bytes": 76702
+  },
+  "body_front": {
+    "source": "athlete-connected-upper-body.png",
+    "source_crop": [
+      245,
+      0,
+      725,
+      850
+    ],
+    "alpha_crop": [
+      15,
+      0,
+      471,
+      850
+    ],
+    "width": 456,
+    "height": 850,
+    "bytes": 345930
+  },
+  "body_side": {
+    "source": "athlete-connected-upper-body.png",
+    "source_crop": [
+      995,
+      0,
+      1385,
+      850
+    ],
+    "alpha_crop": [
+      9,
+      0,
+      371,
+      850
+    ],
+    "width": 362,
+    "height": 850,
+    "bytes": 322834
   }
 }
