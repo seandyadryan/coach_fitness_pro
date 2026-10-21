@@ -58,6 +58,8 @@ def expect(value):
     assert find(value) is not None,f'Expected UI text: {value}'
     RESULTS.append('PASS '+value)
 def launch():
+    # Keep the dedicated emulator awake after the off-screen rendering checks.
+    shell('input','keyevent','224'); shell('wm','dismiss-keyguard')
     shell('am','force-stop',PACKAGE); shell('am','start','-W','-n',PACKAGE+'/.MainActivity'); time.sleep(2)
 def capture(category,name):
     path=DEST/category/(name+'.png'); path.parent.mkdir(parents=True,exist_ok=True)

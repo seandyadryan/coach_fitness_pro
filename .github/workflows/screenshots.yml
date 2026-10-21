@@ -59,6 +59,10 @@ jobs:
           disable-animations: true
           emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -no-snapshot-save
           script: |
+            adb shell settings put system screen_off_timeout 1800000
+            adb shell svc power stayon true
+            adb shell input keyevent 224
+            adb shell wm dismiss-keyguard
             adb install "$(find debug-build -name app-debug.apk -print -quit)"
             adb install "$(find debug-build -name app-debug-androidTest.apk -print -quit)"
             adb shell am instrument -w com.deploydulupulangnanti.coachfitness.test/com.deploydulupulangnanti.coachfitness.CharacterRenderInstrumentation | tee character-render.txt
