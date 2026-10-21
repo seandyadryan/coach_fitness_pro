@@ -1,0 +1,1186 @@
+{
+  "renderer": "Android Canvas drawBitmapMesh",
+  "version_name": "1.2.1",
+  "version_code": 9,
+  "pose_count": 168,
+  "status": "PASS",
+  "checks": [
+    {
+      "exercise": "march",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "march",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "march",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "march",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "march",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "march",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "march",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "march",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "squat",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "squat",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "squat",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "squat",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "squat",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "squat",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "squat",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "squat",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "wall",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "wall",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "wall",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "wall",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "wall",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "wall",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "wall",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "wall",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "pushup",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "pushup",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "pushup",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "pushup",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "pushup",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "pushup",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "pushup",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "pushup",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bridge",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bridge",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bridge",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bridge",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bridge",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bridge",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bridge",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bridge",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bird",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bird",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bird",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bird",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bird",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bird",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bird",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "bird",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "plank",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "plank",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "plank",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "plank",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "plank",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "plank",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "plank",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "plank",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "lunge",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "lunge",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "lunge",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "lunge",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "lunge",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "lunge",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "lunge",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "lunge",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "calf",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "calf",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "calf",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "calf",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "calf",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "calf",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "calf",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "calf",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "deadbug",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "deadbug",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "deadbug",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "deadbug",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "deadbug",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "deadbug",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "deadbug",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "deadbug",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "step",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "step",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "step",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "step",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "step",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "step",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "step",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "step",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "knees",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "knees",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "knees",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "knees",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "knees",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "knees",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "knees",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "knees",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "jack",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "jack",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "jack",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "jack",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "jack",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "jack",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "jack",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "jack",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "box",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "box",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "box",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "box",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "box",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "box",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "box",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "box",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "cat",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "cat",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "cat",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "cat",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "cat",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "cat",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "cat",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "cat",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "child",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "child",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "child",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "child",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "child",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "child",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "child",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "child",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "rotation",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "rotation",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "rotation",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "rotation",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "rotation",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "rotation",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "rotation",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "rotation",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "shoulder",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "shoulder",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "shoulder",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "shoulder",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "shoulder",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "shoulder",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "shoulder",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "shoulder",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "curl",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "curl",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "curl",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "curl",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "curl",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "curl",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "curl",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "curl",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "row",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "row",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "row",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "row",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "row",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "row",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "row",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "row",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "goblet",
+      "phase": 0,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "goblet",
+      "phase": 0.12,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "goblet",
+      "phase": 0.25,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "goblet",
+      "phase": 0.37,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "goblet",
+      "phase": 0.5,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "goblet",
+      "phase": 0.62,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "goblet",
+      "phase": 0.75,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    },
+    {
+      "exercise": "goblet",
+      "phase": 0.87,
+      "head_neck_torso_connected": true,
+      "detached_joint_anchors": [],
+      "status": "PASS"
+    }
+  ],
+  "failures": []
+}

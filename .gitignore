@@ -12,3 +12,5 @@ artifacts/
 *.hprof
 captures/
 *.log
+__pycache__/
+*.py[cod]

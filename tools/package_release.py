@@ -58,6 +58,10 @@ if args.require_movements:
             if path.is_file(): bundle.write(path,path.relative_to(ROOT/'store').as_posix())
         for name in ['movement-qa.json','ANIMATION-RELEASE.md']:
             bundle.write(ROOT/'store'/name,name)
+        if args.require_connected_character:
+            for path in sorted((ROOT/'store/character').rglob('*')):
+                if path.is_file() and (path.parent.name=='native-checks' or path.name in ['athlete-connected-upper-body.png','CONNECTED-CHARACTER-PROMPT.md','CONNECTION-REVIEW.md','textures.json','neck-connection-comparison.png']):
+                    bundle.write(path,path.relative_to(ROOT/'store').as_posix())
     checksums.append(animation_archive)
 (OUT/'SHA256SUMS.txt').write_text('\n'.join(f'{digest(path)}  {path.name}' for path in checksums)+'\n',encoding='utf-8')
 print(json.dumps(dict(archive=str(archive),bytes=archive.stat().st_size,sha256=digest(archive)),indent=2))

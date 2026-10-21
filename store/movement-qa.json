@@ -1,8 +1,8 @@
 {
   "device": "Android API 35 x86_64 emulator",
-  "version_name": "1.2.0",
-  "version_code": 6,
-  "recorded_at": "2026-10-21T08:02:07.292173+00:00",
+  "version_name": "1.2.1",
+  "version_code": 9,
+  "recorded_at": "2026-10-21T09:41:06.219575+00:00",
   "checks": [
     "PASS reduced-motion still frame and manual pose stepping: Bodyweight squat",
     "PASS reduced-motion still frame and manual pose stepping: Push-up",

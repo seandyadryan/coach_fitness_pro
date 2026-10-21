@@ -37,7 +37,7 @@
       "file": "screenshots\\phone\\04-session.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 132659
+      "bytes": 132210
     },
     {
       "file": "screenshots\\phone\\05-progress.png",
@@ -49,7 +49,7 @@
       "file": "screenshots\\phone\\06-profile.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 118770
+      "bytes": 119469
     },
     {
       "file": "screenshots\\phone\\07-exercise-library.png",
@@ -61,7 +61,7 @@
       "file": "screenshots\\phone\\08-exercise-demo.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 175493
+      "bytes": 180294
     },
     {
       "file": "screenshots\\tablet-7\\01-today.png",
@@ -85,7 +85,7 @@
       "file": "screenshots\\tablet-7\\04-profile.png",
       "width": 1280,
       "height": 720,
-      "bytes": 41741
+      "bytes": 41766
     },
     {
       "file": "screenshots\\tablet-10\\01-today.png",
@@ -109,7 +109,7 @@
       "file": "screenshots\\tablet-10\\04-profile.png",
       "width": 1920,
       "height": 1080,
-      "bytes": 68489
+      "bytes": 69036
     },
     {
       "file": "screenshots\\desktop\\01-today.png",
@@ -133,7 +133,7 @@
       "file": "screenshots\\desktop\\04-profile.png",
       "width": 1920,
       "height": 1080,
-      "bytes": 67252
+      "bytes": 67502
     }
   ],
   "video_bytes": 817384,
@@ -144,27 +144,13 @@
   ],
   "screenshot_count": 20,
   "movement_animation_count": 21,
+  "native_character_connectivity": {
+    "status": "PASS",
+    "poses": 168,
+    "version_name": "1.2.1",
+    "version_code": 9
+  },
   "photo_character_textures": [
-    {
-      "part": "head_front",
-      "bytes": 130046,
-      "sha256": "2b8ee83958fa26fc0467a3eeba8c4dc8fe3a791b5e70947876b84f8cf8a8a414"
-    },
-    {
-      "part": "head_side",
-      "bytes": 148314,
-      "sha256": "b696839d16df25fb80f4deea263004379eb5da9f9f31f24490d7288f2a1b8d3d"
-    },
-    {
-      "part": "torso_front",
-      "bytes": 109182,
-      "sha256": "a9a063fb8c775145dacccaa33fa98d808fd67a31508e43c61cbab958978f5460"
-    },
-    {
-      "part": "torso_side",
-      "bytes": 74082,
-      "sha256": "58af0f4950b5798473b67736b401549cffd37edae1372efe8f06fa0544aa7230"
-    },
     {
       "part": "upper_arm",
       "bytes": 51178,
@@ -204,13 +190,23 @@
       "part": "shoe_side",
       "bytes": 76702,
       "sha256": "c5720d5744a9fbd0d91f033a8df7b2968c0262f632e382ee77bb7fac2e414d08"
+    },
+    {
+      "part": "body_front",
+      "bytes": 345930,
+      "sha256": "f34187dde7ab83bd7c064fda9d8d828273fc728872bba2e6101558737c169c63"
+    },
+    {
+      "part": "body_side",
+      "bytes": 322834,
+      "sha256": "287b346d447009bd8f05504a1bdbba8d7684f8e0a627395184772c2baade8a1e"
     }
   ],
   "native_movement_video": {
-    "seconds": 6.636,
+    "seconds": 5.864,
     "width": 1080,
     "height": 1920,
-    "bytes": 625671
+    "bytes": 432759
   },
   "status": "PASS"
 }
