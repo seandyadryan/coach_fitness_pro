@@ -314,7 +314,7 @@ class MainActivity : Activity() {
         body.add(action(s(R.string.support), false) { try { startActivity(Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:seandyadryan2@gmail.com?subject=Coach%20Fitness%20PRO%20support"))) } catch (_: Exception) { Toast.makeText(this, s(R.string.no_email), Toast.LENGTH_LONG).show() } }); body.gap(10)
         body.add(action(s(R.string.reset_water), false) { store.setWater(0); render() }); body.gap(10)
         body.add(action(s(R.string.delete_data), false) { AlertDialog.Builder(this).setTitle(s(R.string.delete_data)).setMessage(s(R.string.delete_message)).setNegativeButton(s(R.string.cancel), null).setPositiveButton(s(R.string.delete)) { _, _ -> store.clear(); running = false; render() }.show() }); body.gap(22)
-        body.add(text("${s(R.string.app_name)} · 1.1.0\n${s(R.string.developer)}", 12, muted)); body.gap(15); body.add(text(s(R.string.safety_text), 12, muted))
+        body.add(text("${s(R.string.app_name)} · 1.2.0\n${s(R.string.developer)}", 12, muted)); body.gap(15); body.add(text(s(R.string.safety_text), 12, muted))
     }
     private fun openUrl(url: String) { try { startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) } catch (_: Exception) { Toast.makeText(this, s(R.string.no_browser), Toast.LENGTH_LONG).show() } }
     private fun begin(w: Workout) {

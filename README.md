@@ -2,12 +2,12 @@
 
 Native Kotlin Android fitness app by **PT Deploy Dulu Pulang Nanti**.
 
-Package: `com.deploydulupulangnanti.coachfitness` · Android 8.0+ (API 26) · Target API 36 · Version 1.1.0.
+Package: `com.deploydulupulangnanti.coachfitness` · Android 8.0+ (API 26) · Target API 36 · Version 1.2.0.
 
 ## What works
 
 - 8 structured routines and 21 exercises with written form cues.
-- Offline animated movement illustrations for all 21 exercises, in exercise guides, routine dialogs and active sessions. Includes play/pause, session synchronization and manual pose stepping when system animations are disabled.
+- Offline photo-character animations for all 21 exercises, using the female athlete from the home-page photograph. Native texture rigging and a continuous torso mesh animate the generated photographic assets in exercise guides, routine dialogs and active sessions. Includes play/pause, session synchronization and manual pose stepping when system animations are disabled.
 - Exercise countdown, 30-second rests, pause/resume, skip and completion journal.
 - Unfinished sessions saved locally and paused when the app goes into the background.
 - Weekly activity, total training time, session goal and current day streak.

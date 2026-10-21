@@ -10,8 +10,8 @@ android {
         applicationId = "com.deploydulupulangnanti.coachfitness"
         minSdk = 26
         targetSdk = 36
-        versionCode = (System.getenv("VERSION_CODE") ?: "4").toInt()
-        versionName = "1.1.0"
+        versionCode = (System.getenv("VERSION_CODE") ?: "6").toInt()
+        versionName = "1.2.0"
         testInstrumentationRunner = "android.test.InstrumentationTestRunner"
     }
     signingConfigs { if (hasReleaseKey) create("release") {

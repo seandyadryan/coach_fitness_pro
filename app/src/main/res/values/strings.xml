@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name" translatable="false">Coach Fitness PRO</string>
     <string name="movement_demo">MOVEMENT DEMO</string>
-    <string name="movement_description">Movement illustration for %1$s. %2$s</string>
-    <string name="movement_note">Illustrated movement guide. Read the form notes and use a comfortable range of motion.</string>
+    <string name="movement_description">Animated character guide for %1$s. %2$s</string>
+    <string name="movement_note">Animated photo character guide. Read the form notes and use a comfortable range of motion.</string>
     <string name="pause_demo">Pause demo</string><string name="play_demo">Play demo</string><string name="next_pose">Next pose</string>
     <string name="today">Today</string><string name="workouts">Workouts</string><string name="progress">Progress</string><string name="profile">Profile</string>
     <string name="greeting">YOUR EVERYDAY ADVANTAGE</string><string name="headline">Show up.\nGet stronger.</string>

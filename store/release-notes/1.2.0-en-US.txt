@@ -1,0 +1,5 @@
+Coach Fitness PRO 1.2.0 — Photo Character
+
+Meet your new movement guide: the athlete from the home screen now demonstrates all 21 exercises with an animated photographic character. Matching face, ponytail and charcoal training outfit bring a consistent look to your workout.
+
+Keep using play/pause, session-synced animation and manual pose stepping when system animations are disabled. All character assets work offline.

@@ -1,0 +1,206 @@
+{
+  "head_front": {
+    "source_crop": [
+      45,
+      0,
+      350,
+      394
+    ],
+    "alpha_crop": [
+      18,
+      0,
+      303,
+      394
+    ],
+    "width": 285,
+    "height": 394,
+    "bytes": 130046
+  },
+  "head_side": {
+    "source_crop": [
+      390,
+      0,
+      735,
+      394
+    ],
+    "alpha_crop": [
+      9,
+      1,
+      344,
+      394
+    ],
+    "width": 335,
+    "height": 393,
+    "bytes": 148314
+  },
+  "torso_front": {
+    "source_crop": [
+      775,
+      0,
+      1120,
+      397
+    ],
+    "alpha_crop": [
+      0,
+      5,
+      343,
+      393
+    ],
+    "width": 343,
+    "height": 388,
+    "bytes": 109182
+  },
+  "torso_side": {
+    "source_crop": [
+      1200,
+      0,
+      1448,
+      401
+    ],
+    "alpha_crop": [
+      10,
+      1,
+      222,
+      401
+    ],
+    "width": 212,
+    "height": 400,
+    "bytes": 74082
+  },
+  "upper_arm": {
+    "source_crop": [
+      105,
+      395,
+      285,
+      736
+    ],
+    "alpha_crop": [
+      1,
+      0,
+      163,
+      335
+    ],
+    "width": 162,
+    "height": 335,
+    "bytes": 51178
+  },
+  "forearm": {
+    "source_crop": [
+      495,
+      397,
+      625,
+      738
+    ],
+    "alpha_crop": [
+      3,
+      0,
+      108,
+      341
+    ],
+    "width": 105,
+    "height": 341,
+    "bytes": 39552
+  },
+  "thigh": {
+    "source_crop": [
+      815,
+      400,
+      1040,
+      738
+    ],
+    "alpha_crop": [
+      22,
+      0,
+      215,
+      332
+    ],
+    "width": 193,
+    "height": 332,
+    "bytes": 68456
+  },
+  "calf": {
+    "source_crop": [
+      1220,
+      401,
+      1365,
+      739
+    ],
+    "alpha_crop": [
+      11,
+      0,
+      142,
+      338
+    ],
+    "width": 131,
+    "height": 338,
+    "bytes": 45150
+  },
+  "hand": {
+    "source_crop": [
+      85,
+      742,
+      290,
+      1080
+    ],
+    "alpha_crop": [
+      4,
+      2,
+      195,
+      328
+    ],
+    "width": 191,
+    "height": 326,
+    "bytes": 60674
+  },
+  "grip": {
+    "source_crop": [
+      460,
+      747,
+      660,
+      1020
+    ],
+    "alpha_crop": [
+      4,
+      0,
+      200,
+      266
+    ],
+    "width": 196,
+    "height": 266,
+    "bytes": 47652
+  },
+  "shoe_front": {
+    "source_crop": [
+      795,
+      747,
+      995,
+      1040
+    ],
+    "alpha_crop": [
+      5,
+      0,
+      200,
+      290
+    ],
+    "width": 195,
+    "height": 290,
+    "bytes": 58094
+  },
+  "shoe_side": {
+    "source_crop": [
+      1085,
+      755,
+      1448,
+      1025
+    ],
+    "alpha_crop": [
+      0,
+      6,
+      363,
+      256
+    ],
+    "width": 363,
+    "height": 250,
+    "bytes": 76702
+  }
+}
