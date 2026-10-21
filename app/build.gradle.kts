@@ -10,7 +10,7 @@ android {
         applicationId = "com.deploydulupulangnanti.coachfitness"
         minSdk = 26
         targetSdk = 36
-        versionCode = (System.getenv("VERSION_CODE") ?: "7").toInt()
+        versionCode = (System.getenv("VERSION_CODE") ?: "8").toInt()
         versionName = "1.2.1"
         testInstrumentationRunner = "com.deploydulupulangnanti.coachfitness.CharacterRenderInstrumentation"
     }

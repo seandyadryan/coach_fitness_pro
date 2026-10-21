@@ -27,7 +27,7 @@ data class CharacterSprite(
         val gy=headY+(hx*sin(headRadians)+hy*cos(headRadians)).toFloat()-y
         val inverse=Math.toRadians(-angle.toDouble())
         val head=MovementPoint((gx*cos(inverse)-gy*sin(inverse)).toFloat(),(gx*sin(inverse)+gy*cos(inverse)).toFloat())
-        val blend=((v-.26f)/.18f).coerceIn(0f,1f)
+        val blend=((v-.33f)/.11f).coerceIn(0f,1f)
         return head.mix(body,blend*blend*(3-2*blend))
     }
     fun point(u: Float,v: Float): MovementPoint {

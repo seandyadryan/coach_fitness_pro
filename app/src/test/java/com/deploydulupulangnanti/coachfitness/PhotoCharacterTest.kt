@@ -4,6 +4,14 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class PhotoCharacterTest {
+    @Test fun faceFeaturesStayRigidWhileTheNeckAndTorsoBend() {
+        for(spec in MovementModel.specifications.values) for(frame in 0..24) {
+            val body=PhotoCharacter.sprites(spec,MovementModel.sample(spec.id,frame/24f)).single { it.part.startsWith("body_") }
+            val u=if(body.part=="body_side") .70f else .5f
+            val eye=body.point(u,.16f); val chin=body.point(u,.30f)
+            assertEquals("${spec.id}: face stretches",16.8f,kotlin.math.hypot(chin.x-eye.x,chin.y-eye.y),.01f)
+        }
+    }
     @Test fun everyPoseUsesKnownPhotographicPartsAndFitsTheStage() {
         val used=mutableSetOf<String>()
         for(spec in MovementModel.specifications.values) for(frame in 0..120) {
