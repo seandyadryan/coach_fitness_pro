@@ -19,136 +19,198 @@
       "file": "screenshots\\phone\\01-today.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 665703
+      "bytes": 667660
     },
     {
       "file": "screenshots\\phone\\02-workouts.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 112420
+      "bytes": 110595
     },
     {
       "file": "screenshots\\phone\\03-workout-plan.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 139280
+      "bytes": 137177
     },
     {
       "file": "screenshots\\phone\\04-session.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 117810
+      "bytes": 132659
     },
     {
       "file": "screenshots\\phone\\05-progress.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 99028
+      "bytes": 97342
     },
     {
       "file": "screenshots\\phone\\06-profile.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 120012
+      "bytes": 118770
     },
     {
       "file": "screenshots\\phone\\07-exercise-library.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 110806
+      "bytes": 110318
     },
     {
       "file": "screenshots\\phone\\08-exercise-demo.png",
       "width": 1080,
       "height": 1920,
-      "bytes": 137060
+      "bytes": 175493
     },
     {
       "file": "screenshots\\tablet-7\\01-today.png",
       "width": 1280,
       "height": 720,
-      "bytes": 301338
+      "bytes": 300544
     },
     {
       "file": "screenshots\\tablet-7\\02-workouts.png",
       "width": 1280,
       "height": 720,
-      "bytes": 52721
+      "bytes": 51456
     },
     {
       "file": "screenshots\\tablet-7\\03-progress.png",
       "width": 1280,
       "height": 720,
-      "bytes": 38530
+      "bytes": 37166
     },
     {
       "file": "screenshots\\tablet-7\\04-profile.png",
       "width": 1280,
       "height": 720,
-      "bytes": 42989
+      "bytes": 41741
     },
     {
       "file": "screenshots\\tablet-10\\01-today.png",
       "width": 1920,
       "height": 1080,
-      "bytes": 588177
+      "bytes": 585708
     },
     {
       "file": "screenshots\\tablet-10\\02-workouts.png",
       "width": 1920,
       "height": 1080,
-      "bytes": 85172
+      "bytes": 82114
     },
     {
       "file": "screenshots\\tablet-10\\03-progress.png",
       "width": 1920,
       "height": 1080,
-      "bytes": 63185
+      "bytes": 60539
     },
     {
       "file": "screenshots\\tablet-10\\04-profile.png",
       "width": 1920,
       "height": 1080,
-      "bytes": 71464
+      "bytes": 68489
     },
     {
       "file": "screenshots\\desktop\\01-today.png",
       "width": 1920,
       "height": 1080,
-      "bytes": 329629
+      "bytes": 327263
     },
     {
       "file": "screenshots\\desktop\\02-workouts.png",
       "width": 1920,
       "height": 1080,
-      "bytes": 84521
+      "bytes": 81906
     },
     {
       "file": "screenshots\\desktop\\03-progress.png",
       "width": 1920,
       "height": 1080,
-      "bytes": 53236
+      "bytes": 50365
     },
     {
       "file": "screenshots\\desktop\\04-profile.png",
       "width": 1920,
       "height": 1080,
-      "bytes": 69853
+      "bytes": 67252
     }
   ],
-  "video_bytes": 815393,
-  "video_seconds": 25.183,
+  "video_bytes": 817384,
+  "video_seconds": 25.137,
   "video_dimensions": [
     1080,
     1920
   ],
   "screenshot_count": 20,
   "movement_animation_count": 21,
+  "photo_character_textures": [
+    {
+      "part": "head_front",
+      "bytes": 130046,
+      "sha256": "2b8ee83958fa26fc0467a3eeba8c4dc8fe3a791b5e70947876b84f8cf8a8a414"
+    },
+    {
+      "part": "head_side",
+      "bytes": 148314,
+      "sha256": "b696839d16df25fb80f4deea263004379eb5da9f9f31f24490d7288f2a1b8d3d"
+    },
+    {
+      "part": "torso_front",
+      "bytes": 109182,
+      "sha256": "a9a063fb8c775145dacccaa33fa98d808fd67a31508e43c61cbab958978f5460"
+    },
+    {
+      "part": "torso_side",
+      "bytes": 74082,
+      "sha256": "58af0f4950b5798473b67736b401549cffd37edae1372efe8f06fa0544aa7230"
+    },
+    {
+      "part": "upper_arm",
+      "bytes": 51178,
+      "sha256": "ed78b8b231018c39038d0f407056b90391ac72df6b97035c13b38e5c3d492f73"
+    },
+    {
+      "part": "forearm",
+      "bytes": 39552,
+      "sha256": "5bd37390deb767bf7bf75d918580d8e7ff4e2f7669e1165d288c82b27f806f63"
+    },
+    {
+      "part": "thigh",
+      "bytes": 68456,
+      "sha256": "824e4a04a55edef8f8de60fc978128919851377d37f46250e1a15255c662a7bd"
+    },
+    {
+      "part": "calf",
+      "bytes": 45150,
+      "sha256": "ca63319debbd52b792d2fc95ad6f23074e01cfe1fc4a248b210f959eb38891ed"
+    },
+    {
+      "part": "hand",
+      "bytes": 60674,
+      "sha256": "d1e73e8083d224e9d71a28ab9a4eb0029638a258307362c91e1c845a31fb2fed"
+    },
+    {
+      "part": "grip",
+      "bytes": 47652,
+      "sha256": "7fe1a0c787169cf64513118f678226d12c32ca28166d5ee0070fc8e1d513214b"
+    },
+    {
+      "part": "shoe_front",
+      "bytes": 58094,
+      "sha256": "064d9c600532d5ead75241664898fbc9a8eba69beaee15ee796cd616ae09b322"
+    },
+    {
+      "part": "shoe_side",
+      "bytes": 76702,
+      "sha256": "c5720d5744a9fbd0d91f033a8df7b2968c0262f632e382ee77bb7fac2e414d08"
+    }
+  ],
   "native_movement_video": {
-    "seconds": 7.28,
+    "seconds": 6.636,
     "width": 1080,
     "height": 1920,
-    "bytes": 1008923
+    "bytes": 625671
   },
   "status": "PASS"
 }

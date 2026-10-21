@@ -30,6 +30,9 @@ if args.require_movements:
         assert movement_qa['version_name']==args.version
         assert movement_qa['version_code']==args.version_code
 manifest=dict(app='Coach Fitness PRO',developer='PT Deploy Dulu Pulang Nanti',application_id='com.deploydulupulangnanti.coachfitness',version_name=args.version,version_code=args.version_code,source_commit=args.source_commit,build_run=args.build_run,privacy_url='https://seandyadryan.github.io/coach_fitness_pro/',listing_locales=86,screenshots=validation['screenshot_count'],movement_animations=validation.get('movement_animation_count',0),signing_key='External JKS, not included in this archive',youtube_url=None,files=[dict(name=f.name,bytes=f.stat().st_size,sha256=digest(f)) for f in files])
+if validation.get('photo_character_textures'):
+    manifest['photo_character_textures']=len(validation['photo_character_textures'])
+    manifest['character_style']='Native 2D rig with generated photographic textures'
 (OUT/'release-manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
 archive=OUT/f'CoachFitnessPRO-PlayStore-Package-v{args.version}.zip'
 with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as bundle:

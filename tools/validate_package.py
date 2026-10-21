@@ -55,6 +55,18 @@ report['video_dimensions']=[main_video['width'],main_video['height']]
 report['screenshot_count']=len(report['images'])-2
 animations=list((store/'animations').glob('*.gif'))
 report['movement_animation_count']=len(animations)
+character_manifest=store/'character/textures.json'
+if character_manifest.exists():
+    textures=json.loads(character_manifest.read_text(encoding='utf-8'))
+    assert len(textures)==12
+    character_files=[]
+    for name,metadata in textures.items():
+        path=ROOT/'app/src/main/res/drawable-nodpi'/f'athlete_{name}.webp'
+        with Image.open(path) as image:
+            assert image.mode=='RGBA' and image.getchannel('A').getextrema()==(0,255),path
+            assert image.size==(metadata['width'],metadata['height']),path
+        character_files.append(dict(part=name,bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
+    report['photo_character_textures']=character_files
 if animations:
     expected=set('march squat wall pushup bridge bird plank lunge calf deadbug step knees jack box cat child rotation shoulder curl row goblet'.split())
     assert {path.stem for path in animations}==expected
