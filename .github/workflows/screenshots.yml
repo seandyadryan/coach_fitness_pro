@@ -80,6 +80,7 @@ jobs:
             store/qa-results.json
             store/asset-validation.json
             store/debug/
-            store/animations/
+            store/animations/native-checks/
+            store/animations/movement-demo.mp4
             store/movement-qa.json
             store/character/native-checks/

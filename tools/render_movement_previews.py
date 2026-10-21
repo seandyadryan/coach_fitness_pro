@@ -8,6 +8,8 @@ import argparse,json,math
 ROOT=Path(__file__).resolve().parents[1]
 S=2
 TEXTURES={path.stem.removeprefix('athlete_'):Image.open(path).convert('RGBA') for path in (ROOT/'app/src/main/res/drawable-nodpi').glob('athlete_*.webp')}
+PREMULTIPLIED={name:image.convert('RGBa') for name,image in TEXTURES.items() if name.startswith('body_')}
+MESH_TEXTURES={}
 
 def font(size,bold=False):
     choices=[Path('C:/Windows/Fonts')/('arialbd.ttf' if bold else 'arial.ttf'),Path('/usr/share/fonts/truetype/dejavu')/('DejaVuSans-Bold.ttf' if bold else 'DejaVuSans.ttf')]
@@ -29,7 +31,7 @@ def mesh_triangle(stage,source,destination,uv):
         b=((x1-x0)*(v2-v0)-(x2-x0)*(v1-v0))/determinant
         return a,b,v0-a*x0-b*y0+a*left+b*top
     a=coefficients([p[0]*(source.width-1) for p in uv]); b=coefficients([p[1]*(source.height-1) for p in uv])
-    tile=source.transform((right-left,bottom-top),Image.Transform.AFFINE,(*a,*b),Image.Resampling.BICUBIC)
+    tile=source.transform((right-left,bottom-top),Image.Transform.AFFINE,(*a,*b),Image.Resampling.BICUBIC).convert('RGBA')
     mask=Image.new('L',tile.size)
     ImageDraw.Draw(mask).polygon([(x-left,y-top) for x,y in destination],fill=255)
     tile.putalpha(ImageChops.multiply(tile.getchannel('A'),mask)); stage.alpha_composite(tile,(left,top))
@@ -37,6 +39,17 @@ def mesh_triangle(stage,source,destination,uv):
 def photo_sprite(stage,sprite):
     source=TEXTURES[sprite['part']]
     if sprite.get('mesh'):
+        key=sprite['part']
+        if key not in MESH_TEXTURES:
+            source=TEXTURES[key].copy(); values=sprite.get('mesh_opacity') or [255]*65
+            mask=Image.new('L',source.size); draw=ImageDraw.Draw(mask)
+            for y in range(source.height):
+                position=y/max(1,source.height-1)*(len(values)-1); row=min(int(position),len(values)-2); fraction=position-row
+                alpha=round(values[row]*(1-fraction)+values[row+1]*fraction)
+                draw.line((0,y,source.width,y),fill=alpha)
+            source.putalpha(ImageChops.multiply(source.getchannel('A'),mask))
+            MESH_TEXTURES[key]=source.convert('RGBa')
+        source=MESH_TEXTURES[key]
         points=[(x*S,y*S) for x,y in sprite['mesh']]
         rows=len(points)//3-1
         for row in range(rows):

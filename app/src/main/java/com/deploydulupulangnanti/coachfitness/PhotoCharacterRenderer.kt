@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
@@ -16,6 +17,7 @@ object PhotoCharacterRenderer {
     private val farArm = ColorMatrixColorFilter(ColorMatrix(floatArrayOf(.8f,0f,0f,0f,0f,0f,.8f,0f,0f,0f,0f,0f,.8f,0f,0f,0f,0f,0f,1f,0f)))
     private val farLeg = ColorMatrixColorFilter(ColorMatrix(floatArrayOf(.78f,0f,0f,0f,0f,0f,.78f,0f,0f,0f,0f,0f,.78f,0f,0f,0f,0f,0f,1f,0f)))
     private val vertices=FloatArray(3*65*2)
+    private val colors=IntArray(3*65)
 
     private fun textures(resources: Resources): Map<String,Bitmap> = textures ?: mapOf(
         "body_front" to R.drawable.athlete_body_front, "body_side" to R.drawable.athlete_body_side,
@@ -37,10 +39,12 @@ object PhotoCharacterRenderer {
                 var index=0
                 for(row in 0..64) for(column in 0..2) {
                     val point=sprite.localPoint(column/2f,row/64f)
+                    colors[row*3+column]=Color.argb((sprite.opacity(row/64f)*255).toInt(),255,255,255)
                     vertices[index++]=point.x
                     vertices[index++]=point.y
                 }
-                canvas.drawBitmapMesh(bitmap,2,64,vertices,0,null,0,paint)
+                // Fade the lower overlap into the legs rather than exposing a flat photo edge.
+                canvas.drawBitmapMesh(bitmap,2,64,vertices,0,colors,0,paint)
             } else canvas.drawBitmap(bitmap,null,RectF(left,top,left+sprite.width,top+sprite.height),paint)
             canvas.restore()
         }

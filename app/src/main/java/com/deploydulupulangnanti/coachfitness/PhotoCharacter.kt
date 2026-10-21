@@ -12,6 +12,11 @@ data class CharacterSprite(
     val shade: Float = 1f, val bend: Float = 0f,
     val headX: Float = 0f, val headY: Float = 0f, val headAngle: Float = 0f
 ) {
+    fun opacity(v: Float): Float {
+        if(!part.startsWith("body_")) return 1f
+        val t=((v-.88f)/.12f).coerceIn(0f,1f)
+        return 1-t*t*(3-2*t)
+    }
     /** The neck and face stay rigid; only the torso rows bend below the shoulders. */
     fun localPoint(u: Float, v: Float): MovementPoint {
         val t=((v-.44f)/.50f).coerceIn(0f,1f)
@@ -44,10 +49,13 @@ object PhotoCharacter {
         fun angle(a: MovementPoint, b: MovementPoint) = Math.toDegrees(atan2((b.y-a.y).toDouble(), (b.x-a.x).toDouble())).toFloat()-90f
         val top=pose[BodyJoint.LS].mix(pose[BodyJoint.RS],.5f)
         val bottom=pose[BodyJoint.LH].mix(pose[BodyJoint.RH],.5f)
+        val rawHead=pose[BodyJoint.HEAD]
+        val headDistance=hypot(rawHead.x-top.x,rawHead.y-top.y).coerceAtLeast(1f)
+        val visualHead=top.mix(rawHead,(28f/headDistance).coerceAtMost(1f))
         val body=CharacterSprite(if(side) "body_side" else "body_front",top.x,top.y,
             if(side) 42f else 43f,hypot(bottom.x-top.x,bottom.y-top.y)/.50f,
             angle(top,bottom),if(side) .40f else .5f,.44f,bend=pose.spineCurve,
-            headX=pose[BodyJoint.HEAD].x,headY=pose[BodyJoint.HEAD].y,headAngle=angle(pose[BodyJoint.HEAD],pose[BodyJoint.NECK]))
+            headX=visualHead.x,headY=visualHead.y,headAngle=angle(rawHead,pose[BodyJoint.NECK]))
         fun bone(part: String, a: MovementPoint, b: MovementPoint, width: Float, shade: Float, overlap: Float = 2f) {
             val length = hypot(b.x-a.x,b.y-a.y).coerceAtLeast(1f)
             val height = length+overlap*2

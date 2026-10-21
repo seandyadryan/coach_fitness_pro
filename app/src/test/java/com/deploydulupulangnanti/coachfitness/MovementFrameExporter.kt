@@ -11,7 +11,8 @@ object MovementFrameExporter {
                 val pose=MovementModel.sample(spec.id,index/48f)
                 val sprites=PhotoCharacter.sprites(spec,pose).joinToString(",",prefix="[",postfix="]") { s ->
                     val mesh=if(s.part.startsWith("body_")) (0..64).flatMap { row -> (0..2).map { col -> s.point(col/2f,row/64f).let { "[${it.x},${it.y}]" } } }.joinToString(",",prefix="[",postfix="]") else "null"
-                    "{\"part\":${quote(s.part)},\"x\":${s.x},\"y\":${s.y},\"width\":${s.width},\"height\":${s.height},\"angle\":${s.angle},\"pivotX\":${s.pivotX},\"pivotY\":${s.pivotY},\"shade\":${s.shade},\"bend\":${s.bend},\"mesh\":$mesh}"
+                    val opacity=if(s.part.startsWith("body_")) (0..64).map { (s.opacity(it/64f)*255).toInt() }.joinToString(",",prefix="[",postfix="]") else "null"
+                    "{\"part\":${quote(s.part)},\"x\":${s.x},\"y\":${s.y},\"width\":${s.width},\"height\":${s.height},\"angle\":${s.angle},\"pivotX\":${s.pivotX},\"pivotY\":${s.pivotY},\"shade\":${s.shade},\"bend\":${s.bend},\"mesh\":$mesh,\"mesh_opacity\":$opacity}"
                 }
                 "{\"curve\":${pose.spineCurve},\"sprites\":$sprites,\"joints\":{"+pose.joints.entries.joinToString(",") { (joint,p) -> "${quote(joint.name)}:[${p.x},${p.y}]" }+"}}"
             }
