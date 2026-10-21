@@ -1,7 +1,8 @@
 """Native UI checks for reduced-motion controls, playback and session coupling."""
 from pathlib import Path
 from PIL import Image, ImageChops
-import io,json,subprocess,time
+import io,json,re,subprocess,time
+from datetime import datetime,timezone
 import capture_screenshots as ui
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -25,6 +26,9 @@ def changed(a,b):
     return ImageChops.difference(a.crop(box),b.crop(box)).getbbox() is not None
 def main():
     assert 'emulator-' in ui.adb('get-serialno')
+    package_info=ui.shell('dumpsys','package',ui.PACKAGE)
+    version_name=re.search(r'versionName=(\S+)',package_info).group(1)
+    version_code=int(re.search(r'versionCode=(\d+)',package_info).group(1))
     ui.configure(1080,1920,360)
     ui.shell('settings','put','global','animator_duration_scale','0')
     for name,slug in [('Bodyweight squat','squat'),('Push-up','pushup'),('Dumbbell curl','curl')]:
@@ -46,7 +50,6 @@ def main():
     ui.adb('pull','/sdcard/movement-demo.mp4',str(video/'movement-demo.mp4'))
     ui.launch(); ui.tap('Start workout'); ui.tap('Start workout',scroll=True); ui.confirm_dialog(); ui.background_pause()
     a=picture(); time.sleep(.6); assert not changed(a,picture()),'Paused session illustration moved'
-    import re
     box=tuple(map(int,re.findall(r'\d+',demo_node().get('bounds'))))
     ui.tap('Resume'); a=picture(box); time.sleep(.7); assert changed(a,picture(box)),'Resumed session did not animate'
     ui.background_pause(); a=picture(); time.sleep(.6); assert not changed(a,picture()),'Background pause did not freeze the movement'
@@ -55,6 +58,6 @@ def main():
     ui.tap('End session',scroll=True); ui.confirm_dialog()
     checks.append('PASS session resume animates, pause/background freeze its illustration, and rest hides exercise motion')
     ui.shell('settings','put','global','animator_duration_scale','0')
-    (ROOT/'store/movement-qa.json').write_text(json.dumps(dict(device='Android API 35 x86_64 emulator',checks=checks,native_video='animations/movement-demo.mp4'),indent=2),encoding='utf-8')
+    (ROOT/'store/movement-qa.json').write_text(json.dumps(dict(device='Android API 35 x86_64 emulator',version_name=version_name,version_code=version_code,recorded_at=datetime.now(timezone.utc).isoformat(),checks=checks,native_video='animations/movement-demo.mp4'),indent=2),encoding='utf-8')
     print('\n'.join(checks),flush=True)
 if __name__=='__main__': main()

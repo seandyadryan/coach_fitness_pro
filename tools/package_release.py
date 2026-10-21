@@ -24,7 +24,11 @@ assert 20<=validation['video_seconds']<=32
 if args.require_movements:
     assert validation['movement_animation_count']==21
     assert validation['native_movement_video']['seconds']>=5
-    assert all(line.startswith('PASS') for line in json.loads((ROOT/'store/movement-qa.json').read_text())['checks'])
+    movement_qa=json.loads((ROOT/'store/movement-qa.json').read_text())
+    assert all(line.startswith('PASS') for line in movement_qa['checks'])
+    if 'version_name' in movement_qa:
+        assert movement_qa['version_name']==args.version
+        assert movement_qa['version_code']==args.version_code
 manifest=dict(app='Coach Fitness PRO',developer='PT Deploy Dulu Pulang Nanti',application_id='com.deploydulupulangnanti.coachfitness',version_name=args.version,version_code=args.version_code,source_commit=args.source_commit,build_run=args.build_run,privacy_url='https://seandyadryan.github.io/coach_fitness_pro/',listing_locales=86,screenshots=validation['screenshot_count'],movement_animations=validation.get('movement_animation_count',0),signing_key='External JKS, not included in this archive',youtube_url=None,files=[dict(name=f.name,bytes=f.stat().st_size,sha256=digest(f)) for f in files])
 (OUT/'release-manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
 archive=OUT/f'CoachFitnessPRO-PlayStore-Package-v{args.version}.zip'

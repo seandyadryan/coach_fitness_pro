@@ -22,11 +22,12 @@ def photo_sprite(stage,sprite):
     if sprite['shade']<1:
         alpha=part.getchannel('A'); part=ImageEnhance.Brightness(part).enhance(sprite['shade']); part.putalpha(alpha)
     # Reproduce the production torso mesh as narrow horizontal texture strips.
-    padding=math.ceil(abs(sprite['bend'])*S)+2
-    warped=Image.new('RGBA',(w+padding*2,h))
-    for row in range(h):
-        t=row/max(1,h-1); offset=round(-sprite['bend']*S*4*t*(1-t))
-        warped.alpha_composite(part.crop((0,row,w,row+1)),(padding+offset,row))
+    padding=math.ceil(abs(sprite['bend'])*S)+2 if sprite['bend'] else 0
+    warped=Image.new('RGBA',(w+padding*2,h)) if sprite['bend'] else part
+    if sprite['bend']:
+        for row in range(h):
+            t=row/max(1,h-1); offset=round(-sprite['bend']*S*4*t*(1-t))
+            warped.alpha_composite(part.crop((0,row,w,row+1)),(padding+offset,row))
     px=padding+sprite['pivotX']*w; py=sprite['pivotY']*h
     size=math.ceil(max(warped.width,warped.height)*2.5)
     temp=Image.new('RGBA',(size,size)); center=size//2
